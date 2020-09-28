@@ -1,1 +1,37 @@
 <p>view-books works!</p>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>edition</th>
+                <th>price</th>
+                <th>publisher</th>
+                <th>genres</th>
+                <th>contact</th>
+                <th>publishedDate</th>
+                <th>copies</th>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr *ngFor="let k of books ; index as i">
+                <td>{{i+1}}</td>
+                <td>{{k.id}}</td>
+                <td>{{k.name}}</td>
+                <td>{{k.author_name}}</td>
+                <td>{{k.edition}}</td>
+                <td>{{k.price}}</td>
+                <td>{{k.publisher}}</td>
+                <td>{{k.genres}}</td>
+                <td>{{k.contact}}</td>
+                <td>{{k.publishedDate.getFullYear()}}</td>
+                <td>{{k.number}}</td>
+                <td>{{k.copies}}</td>
+                <td><button (click)=editBook(k.id)>Edit</button> &nbsp;<button>Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
