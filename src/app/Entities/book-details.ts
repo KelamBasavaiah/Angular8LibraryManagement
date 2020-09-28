@@ -1,2 +1,25 @@
 export class BookDetails {
+    id:string;
+    name:string;
+    author_name:string;
+    edition:number;
+    price:number;
+    publisher:string;
+    genres:string;
+    contact:number;
+    publishedDate:Date;
+    copies:number;
+    constructor(bid?,bname?,ba_name?,bedit?,bprice?,pub?,genres?,contact?,pubDate?,copies?)
+    {
+        this.id=bid;
+        this.name=bname;
+        this.author_name=ba_name;
+        this.edition=bedit;
+        this.price=bprice;
+        this.publisher=pub;
+        this.genres=genres;
+        this.contact=contact;
+        this.publishedDate=pubDate;
+        this.copies=copies;
+    }
 }
