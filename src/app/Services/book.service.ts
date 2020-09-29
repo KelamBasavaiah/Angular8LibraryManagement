@@ -15,7 +15,7 @@ export class BookService {
                        {id:'LM003', name:'AspDotnet',author_name:'mari',edition:4,price:390,publisher:'basavaiah'
                         ,genres:'Programming',contact:9542554454,publishedDate:new Date(),copies:50},
 
-                        {id:'LM004', name:'javascript',author_name:'bhuvana',edition:5,price:420,publisher:'basavaiah'
+                        {id:'LM004', name:'javascript',author_name:'bhuvana',edition:1,price:420,publisher:'basavaiah'
                          ,genres:'Programming',contact:9542554454,publishedDate:new Date(),copies:20}                                            
                       ];
 
