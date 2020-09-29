@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ViewBooksComponent } from './Components/view-books/view-books.component';
 import { HomeComponent } from './Components/home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditViewComponent } from './Components/edit-view/edit-view.component';
 
 @NgModule({
@@ -17,7 +17,7 @@ import { EditViewComponent } from './Components/edit-view/edit-view.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

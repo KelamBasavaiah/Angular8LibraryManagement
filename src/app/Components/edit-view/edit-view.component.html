@@ -1,1 +1,75 @@
-<p>edit-view works!</p>
+<form name="form" [formGroup]="EditForm" (ngSubmit)=" formSubmit()">
+    <div class="wholeForm" >
+
+        <div class="formInputs">
+            <label >Id</label><br>
+            <input type="text" formControlName="Id" [(ngModel)]="this.books.id" readonly>
+            <div *ngIf=" (f.Id.dirty || f.Id.touched || submitted) && f.Id.errors">
+                <div *ngIf="f.Id.errors.required" style="color:red">
+                    <p>Enter Id</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="formInputs">
+            <label  >Book Name</label><br>
+            <input type="text" formControlName="BookName" [(ngModel)]="this.books.name">
+            <div *ngIf=" (f.BookName.dirty || f.BookName.touched || submitted) && f.BookName.errors ">
+                <div *ngIf="f.BookName.errors.required" style="color:red">
+                    <p>Enter the book name</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="formInputs">
+            <label  >Author Name</label><br>
+            <input type="text" formControlName="AuthorName" [(ngModel)]="this.books.author_name">
+            <div *ngIf=" (f.AuthorName.dirty || f.AuthorName.touched || submitted) && f.AuthorName.errors ">
+                <div *ngIf="f.AuthorName.errors.required" style="color:red">
+                    <p>Enter the author name</p>
+                </div>
+                <div *ngIf="f.AuthorName.errors.minlength" style="color:red">
+                    <p>Minimum length 8</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="formInputs">
+            <label  >Edition</label><br>
+            <input type="number" formControlName="Edition" [(ngModel)]="this.books.edition">
+            <div *ngIf=" (f.Edition.dirty || f.Edition.touched || submitted) && f.Edition.errors ">
+                <div *ngIf="f.Edition.errors.required" style="color:red">
+                    <p>Enter the edition</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="formInputs">
+            <label  >Price</label><br>
+            <input type="number" formControlName="Price" [(ngModel)]="this.books.price">
+            <div *ngIf=" (f.Price.dirty || f.Price.touched || submitted) && f.Price.errors ">
+                <div *ngIf="f.Price.errors.required" style="color:red">
+                    <p>Enter the price</p>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div class="formInputs">
+            <label >Published Date</label><br>
+            <input type="date" formControlName="publishedDate" [max]="getToday()" [(ngModel)]="this.books.publishedDate">
+            
+            <div *ngIf=" (f.publishedDate.dirty || f.publishedDate.touched || submitted ) && f.publishedDate.errors">
+                <div *ngIf="f.publishedDate.errors.required" style="color:red">
+                    <p>Enter the Published Date</p>
+                </div>
+            </div>
+        </div>
+
+    
+        <div class="formInputs">       
+            <button type="submit">submit</button>&nbsp;
+            
+        </div>
+    </div>
+</form>
