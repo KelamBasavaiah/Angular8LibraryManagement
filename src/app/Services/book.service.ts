@@ -21,6 +21,14 @@ export class BookService {
 
   constructor() { }
   
-  getAllBooks():BookDetails[]{ console.log(this.books) ;return this.books}
+  getAllBooks():BookDetails[]
+  { 
+    console.log(this.books) ;
+    return this.books
+  }
+
+  getBook(id){
+    return this.books.find(x=>x.id === id)
+  }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BookDetails } from 'src/app/Entities/book-details';
 import { BookService } from 'src/app/Services/book.service';
 
@@ -13,11 +14,15 @@ export class ViewBooksComponent implements OnInit {
    asending:boolean=false;decending:boolean=true;
   public searchString:string="";
   
-  constructor(private bookServices:BookService) { 
+  constructor(private bookServices:BookService,private router: Router) { 
     this.books=this.bookServices.getAllBooks();  
   }
 
-  editBook(id:string){console.log(id)}
+  editBook(id:string)
+  {
+    console.log(id)
+    this.router.navigate(["editView", id]);
+  }
   
   search(filters:string)
   {
