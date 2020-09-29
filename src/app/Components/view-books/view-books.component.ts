@@ -10,6 +10,8 @@ import { BookService } from 'src/app/Services/book.service';
 })
 export class ViewBooksComponent implements OnInit {
    books:BookDetails[];
+   book:BookDetails;
+   asending:boolean=false;decending:boolean=true;
   public searchString:string="";
   
   constructor(private bookServices:BookService,private router: Router) { 
@@ -32,6 +34,21 @@ export class ViewBooksComponent implements OnInit {
         }
       }
      }
+  }
+
+  sort(column:any)
+  {
+    console.log()
+    if(typeof(this.books[0][column])=="number"){
+      this.books=this.books.sort((a,b)=>{return b[column]-a[column]});
+      if(this.decending==false){this.books.reverse(); this.decending=true}else{this.decending=false;}
+      
+    }
+    if(typeof(this.books[0][column])=="string"){
+      this.books=this.books.sort((a,b)=>{return b[column].toLocaleLowerCase() <a[column].toLocaleLowerCase() ?1:-1});
+      if(this.decending==false){this.books.reverse(); this.decending=true}else{this.decending=false;}
+    }
+        
   }
  clearFilters(){
   this.searchString='';
