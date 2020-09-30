@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookDetails } from 'src/app/Entities/book-details';
 import { BookService } from 'src/app/Services/book.service';
 
@@ -11,7 +11,7 @@ import { BookService } from 'src/app/Services/book.service';
 })
 export class EditViewComponent implements OnInit {
 
-  constructor(private bookServices:BookService,private myActiveRoute:ActivatedRoute,private fb:FormBuilder) { 
+  constructor(private bookServices:BookService,private myActiveRoute:ActivatedRoute,private fb:FormBuilder,private router: Router) { 
   
   }
 
@@ -25,10 +25,13 @@ export class EditViewComponent implements OnInit {
   AuthorName:['',[Validators.required,Validators.minLength(8)]],
   Edition:['',[Validators.required]],
   Price:['',[Validators.required]],
-  publishedDate:['',[Validators.required]]
-  
+  publishedDate:['',[Validators.required]],
+  Contact:['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+  Publisher:['',[Validators.required]],
+  Copies:['',[Validators.required]],
+  Genres:['',[Validators.required]]
 })
-get f() {
+get validationControl() {
    return this.EditForm.controls; 
   }
 
@@ -37,7 +40,9 @@ get f() {
     if (this.EditForm.invalid) {
       return;
   }
-console.log(this.EditForm);
+console.log(this.EditForm.value);
+this.bookServices.updateArray(this.EditForm.value);
+this.router.navigate(["ViewBooks"]);
 
   }
 
