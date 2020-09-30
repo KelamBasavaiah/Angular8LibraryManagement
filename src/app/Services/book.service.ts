@@ -23,12 +23,16 @@ this.books.push(data);
   
   getAllBooks():BookDetails[]
   { 
-    console.log(this.books) ;
     return this.books
   }
 
   getBook(id){
-    return this.books.find(x=>x.id === id)
+    return this.books.find(x=>x.id === id)    
+  }
+
+  deleteBookById(id){
+    return this.books.filter(x=>x.id != id?1:0)
+    
   }
 
 }
