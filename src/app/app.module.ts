@@ -7,13 +7,15 @@ import { ViewBooksComponent } from './Components/view-books/view-books.component
 import { HomeComponent } from './Components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditViewComponent } from './Components/edit-view/edit-view.component';
+import { AddBookComponent } from './Components/add-book/add-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewBooksComponent,
     HomeComponent,
-    EditViewComponent
+    EditViewComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
