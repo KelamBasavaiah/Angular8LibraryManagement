@@ -6,20 +6,20 @@ import { BookDetails } from '../Entities/book-details';
 })
 export class BookService {
 
- public books:BookDetails[]=[{id:'LM001', name:'C#',author_name:'Mari',edition:3,price:200,publisher:'bhargav'
-                        ,genres:'Programming',contact:9092660514,publishedDate:new Date(),copies:100},
+ public books:BookDetails[]=[];
 
-                       {id:'LM002', name:'SQl',author_name:'bhuvana',edition:2,price:367,publisher:'bhargav'
-                        ,genres:'Programming',contact:9092660514,publishedDate:new Date(),copies:200},
-
-                       {id:'LM003', name:'AspDotnet',author_name:'mari',edition:4,price:390,publisher:'basavaiah'
-                        ,genres:'Programming',contact:9542554454,publishedDate:new Date(),copies:50},
-
-                        {id:'LM004', name:'javascript',author_name:'bhuvana',edition:1,price:420,publisher:'basavaiah'
-                         ,genres:'Programming',contact:9542554454,publishedDate:new Date(),copies:20}                                            
-                      ];
-
-  constructor() { }
+  constructor() 
+  {
+let data;data=new BookDetails();
+data={id:'LM001', name:'C#',author_name:'Mari',edition:3,price:200,publisher:'Microsoft',genres:'Programming',contact:9092660514,publishedDate:'2020-09-11',copies:100}
+this.books.push(data);
+data={id:'LM002', name:'SQl',author_name:'bhuvana',edition:2,price:367,publisher:'kelam',genres:'Programming',contact:9092660514,publishedDate:'2020-09-1',copies:200}
+this.books.push(data);
+data ={id:'LM003', name:'AspDotnet',author_name:'mari',edition:4,price:390,publisher:'basavaiah',genres:'Programming',contact:9542554454,publishedDate:'2020-09-30',copies:50}
+this.books.push(data);
+data={id:'LM004', name:'javascript',author_name:'bhuvana',edition:1,price:420,publisher:'ISO',genres:'Programming',contact:9542554454,publishedDate:'2020-09-22',copies:20} 
+this.books.push(data); 
+} 
   
   getAllBooks():BookDetails[]
   { 
