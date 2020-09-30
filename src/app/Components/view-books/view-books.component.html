@@ -5,7 +5,7 @@
 </div>
 <div>
     <table>
-        <thead>
+        <thead class="tableHead">
             <tr>
                 <th>#</th>
                 <th>Id  <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('id')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('id')"></span></th>
@@ -18,6 +18,7 @@
                 <th>contact <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('contact')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('contact')"></span></th>
                 <th>publishedDate <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('publishedDate')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('publishedDate')"></span></th>
                 <th>copies <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('copies')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('copies')"></span></th>
+                <th></th>
             </tr>            
         </thead>
         <tbody>
@@ -33,7 +34,7 @@
                 <td>{{k.contact}}</td>
                 <td>{{k.publishedDate}}</td>                
                 <td>{{k.copies}}</td>
-                <td><button (click)=editBook(k.id)>Edit</button> &nbsp;<button>Delete</button></td>
+                <td><span class ="glyphicon glyphicon-edit" (click)=editBook(k.id)></span> &nbsp;<span class="glyphicon glyphicon-remove" (click)=deleteBook(k.id)></span></td>
             </tr>
         </tbody>
     </table>

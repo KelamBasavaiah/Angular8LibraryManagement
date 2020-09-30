@@ -20,8 +20,12 @@ export class ViewBooksComponent implements OnInit {
 
   editBook(id:string)
   {
-    console.log(id)
     this.router.navigate(["editView", id]);
+  }
+  deleteBook(id)
+  {
+    if(confirm('Are sure delete this book '+ id+" ?")){this.books=this.bookServices.deleteBookById(id);}
+    
   }
   
   search(filters:string)
@@ -38,7 +42,6 @@ export class ViewBooksComponent implements OnInit {
 
   sort(column:any)
   {
-    console.log()
     if(typeof(this.books[0][column])=="number"){
       this.books=this.books.sort((a,b)=>{return b[column]-a[column]});
       if(this.decending==false){this.books.reverse(); this.decending=true}else{this.decending=false;}
