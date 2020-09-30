@@ -52,4 +52,13 @@ this.books.push(data);
     }
   }
 
+  addBook(book:BookDetails):boolean{
+    if(this.books.push(book)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
 }
