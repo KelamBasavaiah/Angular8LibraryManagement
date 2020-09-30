@@ -31,4 +31,13 @@ this.books.push(data);
     return this.books.find(x=>x.id === id)
   }
 
+  addBook(book:BookDetails):boolean{
+    if(this.books.push(book)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
 }

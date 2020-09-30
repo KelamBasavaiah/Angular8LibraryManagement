@@ -1,51 +1,90 @@
 <div class="card m-3">
     <div class="card-body">
-        <form name="form">
+        <form name="form" (ngSubmit)="f.form.valid && insertBook()" #f="ngForm" novalidate>
+            <div class="form-row">
+                <label>Enter the Book Id :</label>
+                <input type="text" class="form-control" name="id" #id="ngModel" [(ngModel)]="book.id" [ngClass]="{ 'is-invalid': f.submitted && id.invalid }" required>
+                <span *ngIf="id.invalid && id.touched" class="invalid-feedback">                
+                    <span *ngIf="id.errors.required">Book ID is required</span>
+                </span>
+            </div>
             <div class="form-row">
                 <label>Enter the Book Name :</label>
-                <input type="text" class="form-control" name="name" [(ngModel)]="book.name">
+                <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="book.name" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required>
+                <span *ngIf="name.invalid && name.touched" class="invalid-feedback">                
+                    <span *ngIf="name.errors.required">Book Name is required</span>
+                </span>
             </div>
             <div class="form-row">
                 <label>Enter the Author Name :</label>
-                <input type="text" class="form-control" name="author" [(ngModel)]="book.author">
+                <input type="text" class="form-control" name="author" #author="ngModel" [(ngModel)]="book.author" [ngClass]="{ 'is-invalid': f.submitted && author.invalid }" required>
+                <span *ngIf="author.invalid && author.touched" class="invalid-feedback">                
+                    <span *ngIf="author.errors.required">Author Name is required</span>
+                </span>
             </div>
             <div class="form-row">
                 <label>Enter Edition Year :</label>
-                <input type="number" class="form-control" name="edition" [(ngModel)]="book.edition">
+                <input type="number" class="form-control" name="edition" #edition="ngModel" [(ngModel)]="book.edition" [ngClass]="{ 'is-invalid': f.submitted && edition.invalid }" required>
+                <span *ngIf="edition.invalid && edition.touched" class="invalid-feedback">                
+                    <span *ngIf="edition.errors.required">Edition Year is required</span>
+                </span>
             </div>
             <div class="form-row">
                 <label>Enter Price :</label>
-                <input type="number" class="form-control" name="price" [(ngModel)]="book.price">
+                <input type="text" class="form-control" name="price" #price="ngModel" [(ngModel)]="book.price" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" required>
+                <span *ngIf="price.invalid && price.touched" class="invalid-feedback">                
+                    <span *ngIf="price.errors.required">Price is required</span>
+                </span>
             </div>
             <div class="form-row">
                 <label>Enter Publisher Name :</label>
-                <input type="text" class="form-control" name="publisher" [(ngModel)]="book.publisher">
+                <input type="text" class="form-control" name="publisher" #publisher="ngModel" [(ngModel)]="book.publisher" [ngClass]="{ 'is-invalid': f.submitted && publisher.invalid }" required>
+                <span *ngIf="publisher.invalid && publisher.touched" class="invalid-feedback">                
+                    <span *ngIf="publisher.errors.required">Publisher Name is required</span>
+                </span>
+
             </div>
             <div class="form-row">
                 <label>Choose Genres:</label>
-                <select name="genres" class="form-control" [(ngModel)]="book.genres">
+                <select name="genres" class="form-control" [(ngModel)]="book.genres" #genres="ngModel" [ngClass]="{ 'is-invalid': f.submitted && genres.invalid }" required>
                     <option value=""></option>
                     <option value="journal">Journal</option>
                     <option value="story">Story</option>
                     <option value="novel">Novel</option>
                     <option value="comics">Comics</option>
                 </select>
+                <span *ngIf="genres.invalid && genres.touched" class="invalid-feedback">                
+                    <span *ngIf="genres.errors.required">Genres is required</span>
+                </span>
             </div>
             <div class="form-row">
                 <label>Contact :</label>
-                <input type="number" class="form-control" name="contact" [(ngModel)]="book.contact">
+                <input type="text" class="form-control" name="contact" #contact="ngModel" [(ngModel)]="book.contact" [ngClass]="{ 'is-invalid': f.submitted && contact.invalid }" required>
+                <span *ngIf="contact.invalid && contact.touched" class="invalid-feedback">                
+                    <span *ngIf="contact.errors.required">Contact is required</span>
+                </span>
+
             </div>
-            <div class="form-row">
+            <!-- <div class="form-row">
                 <label>Enter Published Date :</label>
-                <input type="date" class="form-control" name="publishedDate" [(ngModel)]="book.publishedDate">
-            </div>
+                <input type="date" class="form-control" name="publishedDate" #publishedDate="ngModel" [(ngModel)]="book.publishedDate" [ngClass]="{ 'is-invalid': f.submitted && publishedDate.invalid }" required>
+                <span *ngIf="publisherDate.invalid && publisherDate.touched" class="invalid-feedback">                
+                    <span *ngIf="publishedDate.errors.required">Published Date is required</span>
+                </span>
+            </div> -->
             <div class="form-row">
                 <label>Enter No.of.Copies :</label>
-                <input type="number" class="form-control" name="copies" [(ngModel)]="book.copies">
+                <input type="text" class="form-control" name="copies" #copies="ngModel" [(ngModel)]="book.copies" [ngClass]="{ 'is-invalid': f.submitted && copies.invalid }" required>
+                <span *ngIf="copies.invalid && copies.touched" class="invalid-feedback">                
+                    <span *ngIf="copies.errors.required">Copies is required</span>
+                </span>
+
             </div>
-            <button class="btn btn-success">submit</button>
-            <button class="btn btn-danger">Reset</button>
+            <br/>
+            <button class="btn btn-success" type="submit">submit</button>
+            <button class="btn btn-danger" type="reset">Reset</button>
         </form>
+        
     </div>
  </div>
  
