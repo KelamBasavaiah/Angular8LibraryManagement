@@ -16,7 +16,7 @@
                 <th>publisher <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('publisher')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('publisher')"></span></th>
                 <th>genres <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('genres')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('genres')"></span></th>
                 <th>contact <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('contact')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('contact')"></span></th>
-                <th>publishedDate </th>
+                <th>publishedDate <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('publishedDate')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('publishedDate')"></span></th>
                 <th>copies <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('copies')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('copies')"></span></th>
             </tr>            
         </thead>
@@ -31,7 +31,7 @@
                 <td>{{k.publisher}}</td>
                 <td>{{k.genres}}</td>
                 <td>{{k.contact}}</td>
-                <td>{{k.publishedDate.getFullYear()}}</td>                
+                <td>{{k.publishedDate}}</td>                
                 <td>{{k.copies}}</td>
                 <td><button (click)=editBook(k.id)>Edit</button> &nbsp;<button>Delete</button></td>
             </tr>
