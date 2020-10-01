@@ -1,44 +1,52 @@
-<div class="card m-3">
+<div class="card">
+    <div class="card-header"><h3><b>ADD BOOK DETAILS</b></h3></div>
     <div class="card-body">
-        <form name="form" (ngSubmit)="f.form.valid && insertBook()" #f="ngForm" novalidate>
+        <form name="form" (ngSubmit)="f.form.valid && insertBook()" #f="ngForm" >
             <div class="form-row">
                 <label>Enter the Book Id :</label>
-                <input type="text" class="form-control" name="id" #id="ngModel" [(ngModel)]="book.id" [ngClass]="{ 'is-invalid': f.submitted && id.invalid }" required>
+                <input type="text" class="form-control" name="id" #id="ngModel" [(ngModel)]="book.id" pattern="[a-zA-Z0-9]*" required>
                 <span *ngIf="id.invalid && id.touched" class="invalid-feedback">                
                     <span *ngIf="id.errors.required">Book ID is required</span>
+                    <span *ngIf="id.errors.pattern">ID cannot contain space</span>
                 </span>
             </div>
             <div class="form-row">
                 <label>Enter the Book Name :</label>
-                <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="book.name" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required>
+                <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="book.name" pattern="[a-zA-Z0-9]*" required>
                 <span *ngIf="name.invalid && name.touched" class="invalid-feedback">                
                     <span *ngIf="name.errors.required">Book Name is required</span>
+                    <span *ngIf="name.errors.pattern">Name cannot contain space</span>
+
                 </span>
             </div>
             <div class="form-row">
                 <label>Enter the Author Name :</label>
-                <input type="text" class="form-control" name="author" #author="ngModel" [(ngModel)]="book.author" [ngClass]="{ 'is-invalid': f.submitted && author.invalid }" required>
+                <input type="text" class="form-control" name="author" #author="ngModel" [(ngModel)]="book.author_name" pattern="[a-zA-Z0-9]*" required>
                 <span *ngIf="author.invalid && author.touched" class="invalid-feedback">                
                     <span *ngIf="author.errors.required">Author Name is required</span>
+                    <span *ngIf="author.errors.pattern">AuthorName cannot contain space</span>
+
                 </span>
             </div>
             <div class="form-row">
-                <label>Enter Edition Year :</label>
-                <input type="number" class="form-control" name="edition" #edition="ngModel" [(ngModel)]="book.edition" [ngClass]="{ 'is-invalid': f.submitted && edition.invalid }" required>
+                <label>Enter Edition :</label>
+                <input type="number" class="form-control" name="edition" #edition="ngModel" [(ngModel)]="book.edition" 
+                min="1" required>
                 <span *ngIf="edition.invalid && edition.touched" class="invalid-feedback">                
-                    <span *ngIf="edition.errors.required">Edition Year is required</span>
+                    <span *ngIf="edition.errors.required">Edition is required</span>
                 </span>
             </div>
             <div class="form-row">
                 <label>Enter Price :</label>
-                <input type="text" class="form-control" name="price" #price="ngModel" [(ngModel)]="book.price" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" required>
+                <input type="text" class="form-control" name="price" #price="ngModel" [(ngModel)]="book.price"  pattern="[0-9]*" required>
                 <span *ngIf="price.invalid && price.touched" class="invalid-feedback">                
                     <span *ngIf="price.errors.required">Price is required</span>
+                    <span *ngIf="price.errors.pattern">price must be numbers </span>
                 </span>
             </div>
             <div class="form-row">
                 <label>Enter Publisher Name :</label>
-                <input type="text" class="form-control" name="publisher" #publisher="ngModel" [(ngModel)]="book.publisher" [ngClass]="{ 'is-invalid': f.submitted && publisher.invalid }" required>
+                <input type="text" class="form-control" name="publisher" #publisher="ngModel" [(ngModel)]="book.publisher"  required>
                 <span *ngIf="publisher.invalid && publisher.touched" class="invalid-feedback">                
                     <span *ngIf="publisher.errors.required">Publisher Name is required</span>
                 </span>
@@ -46,7 +54,7 @@
             </div>
             <div class="form-row">
                 <label>Choose Genres:</label>
-                <select name="genres" class="form-control" [(ngModel)]="book.genres" #genres="ngModel" [ngClass]="{ 'is-invalid': f.submitted && genres.invalid }" required>
+                <select name="genres" class="form-control" [(ngModel)]="book.genres" #genres="ngModel"  required>
                     <option value=""></option>
                     <option value="journal">Journal</option>
                     <option value="story">Story</option>
@@ -58,33 +66,35 @@
                 </span>
             </div>
             <div class="form-row">
-                <label>Contact :</label>
-                <input type="text" class="form-control" name="contact" #contact="ngModel" [(ngModel)]="book.contact" [ngClass]="{ 'is-invalid': f.submitted && contact.invalid }" required>
+                <label>Contact No:</label>
+                <input type="text" class="form-control" name="contact" #contact="ngModel" [(ngModel)]="book.contact" pattern="[0-9]*" maxlength="10" required>
                 <span *ngIf="contact.invalid && contact.touched" class="invalid-feedback">                
-                    <span *ngIf="contact.errors.required">Contact is required</span>
+                    <span *ngIf="contact.errors.required">Contact No is required</span>
+                    <span *ngIf="contact.errors.pattern">Contact No must be numbers</span>
                 </span>
 
             </div>
             <!-- <div class="form-row">
                 <label>Enter Published Date :</label>
-                <input type="date" class="form-control" name="publishedDate" #publishedDate="ngModel" [(ngModel)]="book.publishedDate" [ngClass]="{ 'is-invalid': f.submitted && publishedDate.invalid }" required>
-                <span *ngIf="publisherDate.invalid && publisherDate.touched" class="invalid-feedback">                
-                    <span *ngIf="publishedDate.errors.required">Published Date is required</span>
-                </span>
+                <input type="date" class="form-control" name="publishedDate" #publishedDate="ngModel" [(ngModel)]="book.publishedDate" required>
             </div> -->
             <div class="form-row">
                 <label>Enter No.of.Copies :</label>
-                <input type="text" class="form-control" name="copies" #copies="ngModel" [(ngModel)]="book.copies" [ngClass]="{ 'is-invalid': f.submitted && copies.invalid }" required>
+                <input type="number" class="form-control" name="copies" #copies="ngModel" [(ngModel)]="book.copies" min="1" pattern="[0-9]*" required>
                 <span *ngIf="copies.invalid && copies.touched" class="invalid-feedback">                
                     <span *ngIf="copies.errors.required">Copies is required</span>
+                    <span *ngIf="copies.errors.pattern">Copies must be numbers</span>
                 </span>
 
             </div>
             <br/>
-            <button class="btn btn-success" type="submit">submit</button>
-            <button class="btn btn-danger" type="reset">Reset</button>
+            <button class="btn btn-success" type="submit" [disabled]="!f.form.valid" id="btnSubmit">submit</button>
+            <button class="btn btn-danger" type="reset" id="btnReset">Reset</button>
         </form>
         
+    </div>
+    <div *ngIf="result">
+        Book is Added successfully
     </div>
  </div>
  

@@ -1,3 +1,23 @@
 .invalid-feedback{
     color: red;
 }
+.card-header{
+   margin-left: 30%;
+}
+.card{
+    width: 50%;
+    height: 20%;
+    margin-left: 20%;
+}
+
+#btnReset{
+    margin-left: 50%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#btnSubmit{
+    margin-left: 10%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
