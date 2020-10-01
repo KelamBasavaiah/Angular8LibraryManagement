@@ -31,7 +31,8 @@ this.books.push(data);
   }
 
   deleteBookById(id){
-    return this.books.filter(x=>x.id != id?1:0)
+    this.books= this.books.filter(x=>x.id != id?1:0)
+    return  this.books
     
   }
 
