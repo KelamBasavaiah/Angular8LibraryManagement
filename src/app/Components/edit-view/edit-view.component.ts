@@ -23,27 +23,27 @@ export class EditViewComponent implements OnInit {
   Id:['',Validators.required],
   BookName:['',[Validators.required]],
   AuthorName:['',[Validators.required,Validators.minLength(8)]],
-  Edition:['',[Validators.required]],
-  Price:['',[Validators.required]],
+  Edition:['',[Validators.required,Validators.min(0)]],
+  Price:['',[Validators.required,Validators.min(1)]],
   publishedDate:['',[Validators.required]],
   Contact:['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
   Publisher:['',[Validators.required]],
-  Copies:['',[Validators.required]],
+  Copies:['',[Validators.required,Validators.min(1)]],
   Genres:['',[Validators.required]]
 })
 get validationControl() {
    return this.EditForm.controls; 
   }
 
-  formSubmit(){
+  formSubmit()
+  {
     this.submitted=true;
     if (this.EditForm.invalid) {
       return;
-  }
-console.log(this.EditForm.value);
-this.bookServices.updateArray(this.EditForm.value);
-this.router.navigate(["ViewBooks"]);
-
+    }
+    console.log(this.EditForm.value);
+    this.bookServices.updateArray(this.EditForm.value);
+    this.router.navigate(["ViewBooks"]);
   }
 
   getToday(): string {
