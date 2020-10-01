@@ -17,8 +17,9 @@ export class AddBookComponent implements OnInit {
   insertBook(){
     debugger
     console.log(this.book);
-    if(this.bookService.addBook(this.book))
+    if(this.bookService.addBook(this.book)){
       this.result="Book added";
+    }
     else
       this.result="some error ";
   }
