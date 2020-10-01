@@ -41,6 +41,9 @@
                 <div *ngIf="validationControl.Edition.errors.required" style="color:red">
                     <p>Enter the edition</p>
                 </div>
+                <div *ngIf="validationControl.Edition.errors.min" style="color:red">
+                    <p>Enter the correct edition</p>
+                </div>
             </div>
         </div>
 
@@ -50,6 +53,9 @@
             <div *ngIf=" (validationControl.Price.dirty || validationControl.Price.touched || submitted) && validationControl.Price.errors ">
                 <div *ngIf="validationControl.Price.errors.required" style="color:red">
                     <p>Enter the price</p>
+                </div>
+                <div *ngIf="validationControl.Price.errors.min" style="color:red">
+                    <p>Enter the correct price</p>
                 </div>
             </div>
         </div>
@@ -95,6 +101,9 @@
             <div *ngIf=" (validationControl.Copies.dirty || validationControl.Copies.touched || submitted) && validationControl.Copies.errors ">
                 <div *ngIf="validationControl.Copies.errors.required" style="color:red">
                     <p>Enter the number of copies</p>
+                </div>
+                <div *ngIf="validationControl.Copies.errors.min" style="color:red">
+                    <p>Enter the number of copies minimum 1</p>
                 </div>
             </div>
         </div>
