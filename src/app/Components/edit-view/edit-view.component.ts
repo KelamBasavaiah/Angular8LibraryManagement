@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BookDetails } from 'src/app/Entities/book-details';
-import { BookService } from 'src/app/Services/book.service';
+import { BookDetails } from '../../Entities/book-details';
+import { BookService } from '../../Services/book.service';
 
 @Component({
   selector: 'app-edit-view',
