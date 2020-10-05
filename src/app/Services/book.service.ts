@@ -35,7 +35,7 @@ this.books.push(data);
     return  this.books
     
   }
-
+  let:Boolean = false;
   updateArray(UpdatedArray){
     for(var i in this.books){
       if(this.books[i].id == UpdatedArray.Id){
@@ -48,9 +48,10 @@ this.books.push(data);
         this.books[i].publisher = UpdatedArray.Publisher;
         this.books[i].price = UpdatedArray.Price;
         this.books[i].copies = UpdatedArray.Copies;
-        break;
+        return this.let = true;
       }
     }
+    return this.let;
   }
 
   addBook(book:BookDetails):boolean{
