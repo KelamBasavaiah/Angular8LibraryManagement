@@ -1,0 +1,26 @@
+.card{
+    width: 50%;
+    height: 20%;
+    margin-left: 25%;
+}
+.card-header{
+    margin-left: 30%;
+    font-size: 30px;
+    width: 50%;
+}
+.btnUpdate{
+    float: right;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.reg{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 1%;
+    padding: 3%;
+}
