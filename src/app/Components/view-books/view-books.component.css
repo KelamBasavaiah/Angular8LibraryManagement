@@ -1,17 +1,23 @@
+.search{
+  float: right;
+  margin: 5px 0px 0px 0px;
+}
 table, td, th {
     border: 1px;
   }
   
   table {
-    border-collapse: collapse;
-    width: 80%;
-    margin-top: 40px;
-   margin-left: 10px;
+    border-style: solid;
+    border-color: coral;
+    width: 100%;
+    margin: 60px 10px 10px 10px; 
+
   }
   
   th {
     text-align:left;
     font-size: 16px;
+    background-color: #f5f5f5;
   }
   th, td {
     padding: 10px;
