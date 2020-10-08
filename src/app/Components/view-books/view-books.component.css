@@ -26,3 +26,4 @@ table, td, th {
   }
   tr:hover {background-color: #f5f5f5;}
   .tableHead .glyphicon {font-size: 8px;}
+  .glyphicon{cursor: pointer;}

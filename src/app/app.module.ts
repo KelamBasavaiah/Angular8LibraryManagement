@@ -8,6 +8,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditViewComponent } from './Components/edit-view/edit-view.component';
 import { AddBookComponent } from './Components/add-book/add-book.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { AddBookComponent } from './Components/add-book/add-book.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
