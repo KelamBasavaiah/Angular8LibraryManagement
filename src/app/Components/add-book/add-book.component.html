@@ -21,7 +21,7 @@
             </div>
             <div class="form-row">
                 <label>Enter the Author Name :</label>
-                <input type="text" class="form-control" name="author" #author="ngModel" [(ngModel)]="book.author_name" pattern="[a-zA-Z0-9]*" required>
+                <input type="text" class="form-control" name="author" #author="ngModel" [(ngModel)]="book.authorName" pattern="[a-zA-Z0-9]*" required>
                 <span *ngIf="author.invalid && author.touched" class="invalid-feedback">                
                     <span *ngIf="author.errors.required">Author Name is required</span>
                     <span *ngIf="author.errors.pattern">AuthorName cannot contain space</span>
