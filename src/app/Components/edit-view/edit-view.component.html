@@ -1,132 +1,141 @@
-<form name="form" [formGroup]="EditForm" (ngSubmit)=" formSubmit()">
-    <div class="wholeForm" >
-
-        <div class="formInputs">
-            <label >Id</label><br>
-            <input type="text" formControlName="Id" [(ngModel)]="this.books.id" readonly>
-            <div *ngIf=" (validationControl.Id.dirty || validationControl.Id.touched || submitted) && validationControl.Id.errors">
-                <div *ngIf="validationControl.Id.errors.required" style="color:red">
-                    <p>Enter Id</p>
+<div class="container reg">
+    <form name="form" [formGroup]="EditForm" (ngSubmit)=" formSubmit()">
+        <div class="card" >
+            <h3 class="card-header">Edit Your Book</h3>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label >Id</label><br>
+                    <input type="text" class="form-control" formControlName="Id" [(ngModel)]="this.books.id" readonly>
+                    <div *ngIf=" (validationControl.Id.dirty || validationControl.Id.touched || submitted) && validationControl.Id.errors">
+                        <div *ngIf="validationControl.Id.errors.required" style="color:red">
+                            <p>Enter Id</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="formInputs">
-            <label  >Book Name</label><br>
-            <input type="text" formControlName="BookName" [(ngModel)]="this.books.name">
-            <div *ngIf=" (validationControl.BookName.dirty || validationControl.BookName.touched || submitted) && validationControl.BookName.errors ">
-                <div *ngIf="validationControl.BookName.errors.required" style="color:red">
-                    <p>Enter the book name</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="formInputs">
-            <label  >Author Name</label><br>
-            <input type="text" formControlName="AuthorName" [(ngModel)]="this.books.author_name">
-            <div *ngIf=" (validationControl.AuthorName.dirty || validationControl.AuthorName.touched || submitted) && validationControl.AuthorName.errors ">
-                <div *ngIf="validationControl.AuthorName.errors.required" style="color:red">
-                    <p>Enter the author name</p>
-                </div>
-                <div *ngIf="validationControl.AuthorName.errors.minlength" style="color:red">
-                    <p>Minimum length 8</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="formInputs">
-            <label  >Edition</label><br>
-            <input type="number" formControlName="Edition" [(ngModel)]="this.books.edition">
-            <div *ngIf=" (validationControl.Edition.dirty || validationControl.Edition.touched || submitted) && validationControl.Edition.errors ">
-                <div *ngIf="validationControl.Edition.errors.required" style="color:red">
-                    <p>Enter the edition</p>
-                </div>
-                <div *ngIf="validationControl.Edition.errors.min" style="color:red">
-                    <p>Enter the correct edition</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="formInputs">
-            <label  >Price</label><br>
-            <input type="number" formControlName="Price" [(ngModel)]="this.books.price">
-            <div *ngIf=" (validationControl.Price.dirty || validationControl.Price.touched || submitted) && validationControl.Price.errors ">
-                <div *ngIf="validationControl.Price.errors.required" style="color:red">
-                    <p>Enter the price</p>
-                </div>
-                <div *ngIf="validationControl.Price.errors.min" style="color:red">
-                    <p>Enter the correct price</p>
-                </div>
-            </div>
-        </div>
         
+                <div class="form-group">
+                    <label  >Book Name</label><br>
+                    <input type="text" class="form-control" formControlName="BookName" [(ngModel)]="this.books.name">
+                    <div *ngIf=" (validationControl.BookName.dirty || validationControl.BookName.touched || submitted) && validationControl.BookName.errors ">
+                        <div *ngIf="validationControl.BookName.errors.required" style="color:red">
+                            <p>Enter the book name</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label  >Author Name</label><br>
+                    <input type="text" class="form-control" formControlName="AuthorName" [(ngModel)]="this.books.author_name">
+                    <div *ngIf=" (validationControl.AuthorName.dirty || validationControl.AuthorName.touched || submitted) && validationControl.AuthorName.errors ">
+                        <div *ngIf="validationControl.AuthorName.errors.required" style="color:red">
+                            <p>Enter the author name</p>
+                        </div>
+                        <div *ngIf="validationControl.AuthorName.errors.minlength" style="color:red">
+                            <p>Minimum length 8</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label  >Edition</label><br>
+                    <input type="number" class="form-control" formControlName="Edition" [(ngModel)]="this.books.edition">
+                    <div *ngIf=" (validationControl.Edition.dirty || validationControl.Edition.touched || submitted) && validationControl.Edition.errors ">
+                        <div *ngIf="validationControl.Edition.errors.required" style="color:red">
+                            <p>Enter the edition</p>
+                        </div>
+                        <div *ngIf="validationControl.Edition.errors.min" style="color:red">
+                            <p>Enter the correct edition</p>
+                        </div>
+                    </div>
+                </div>
     
-        <div class="formInputs">
-            <label >Published Date</label><br>
-            <input type="date" formControlName="publishedDate" [(ngModel)]="this.books.publishedDate" [max]="getToday()">
+                <div class="form-group">
+                    <label  >Price</label><br>
+                    <input type="number" class="form-control" formControlName="Price" [(ngModel)]="this.books.price">
+                    <div *ngIf=" (validationControl.Price.dirty || validationControl.Price.touched || submitted) && validationControl.Price.errors ">
+                        <div *ngIf="validationControl.Price.errors.required" style="color:red">
+                            <p>Enter the price</p>
+                        </div>
+                        <div *ngIf="validationControl.Price.errors.min" style="color:red">
+                            <p>Enter the correct price</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+    
+                <div class="form-group">
+                    <label >Published Date</label><br>
+                    <input type="date" class="form-control" formControlName="publishedDate" [(ngModel)]="this.books.publishedDate" [max]="getToday()">
+                    
+                    <div *ngIf=" (validationControl.publishedDate.dirty || validationControl.publishedDate.touched || submitted ) && validationControl.publishedDate.errors">
+                        <div *ngIf="validationControl.publishedDate.errors.required" style="color:red">
+                            <p>Enter the Published Date</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label  >Contact</label><br>
+                    <input type="text" class="form-control" formControlName="Contact" [(ngModel)]="this.books.contact">
+                    <div *ngIf=" (validationControl.Contact.dirty || validationControl.Contact.touched || submitted) && validationControl.Contact.errors ">
+                        <div *ngIf="validationControl.Contact.errors.required" style="color:red">
+                            <p>Enter the contact number</p>
+                        </div>
+                        <div *ngIf="validationControl.Contact.errors.pattern || validationControl.Contact.errors.minlength || validationControl.Contact.errors.maxlength" style="color:red">
+                            <p>Phone Number must be atleast 10 numbers</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label  >Publisher</label><br>
+                    <input type="text" class="form-control" formControlName="Publisher" [(ngModel)]="this.books.publisher">
+                    <div *ngIf=" (validationControl.Publisher.dirty || validationControl.Publisher.touched || submitted) && validationControl.Publisher.errors ">
+                        <div *ngIf="validationControl.Publisher.errors.required" style="color:red">
+                            <p>Enter the publisher</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label  >Copies</label><br>
+                    <input type="number" class="form-control" formControlName="Copies" [(ngModel)]="this.books.copies">
+                    <div *ngIf=" (validationControl.Copies.dirty || validationControl.Copies.touched || submitted) && validationControl.Copies.errors ">
+                        <div *ngIf="validationControl.Copies.errors.required" style="color:red">
+                            <p>Enter the number of copies</p>
+                        </div>
+                        <div *ngIf="validationControl.Copies.errors.min" style="color:red">
+                            <p>Enter the number of copies minimum 1</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label >Genres</label><br>
+                    <select class="form-control" formControlName="Genres"  [(ngModel)]="this.books.genres">  
+                        <option default selected [value]="books.genres" >{{books.genres}}</option>                             
+                        <option *ngIf="books.genres !=='Noval'" value="Noval" >Noval</option>
+                        <option *ngIf="books.genres !=='Study'" value="Study">Study</option>
+                        <option *ngIf="books.genres !=='Programming'" value="Programming">Programming</option>
+                        <option  *ngIf="books.genres !=='Thriller'" value="Thriller">Thriller</option>
+                      </select>
+                      <div *ngIf=" (validationControl.Genres.dirty || validationControl.Genres.touched || submitted ) && validationControl.Genres.errors">
+                        <div *ngIf="validationControl.Genres.errors.required" style="color:red">
+                            <p>select Genres</p>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="form-group">       
+                    <button class="btnUpdate"  type="submit">Update</button>&nbsp;
+                </div>
+            </div>
+    
             
-            <div *ngIf=" (validationControl.publishedDate.dirty || validationControl.publishedDate.touched || submitted ) && validationControl.publishedDate.errors">
-                <div *ngIf="validationControl.publishedDate.errors.required" style="color:red">
-                    <p>Enter the Published Date</p>
-                </div>
-            </div>
+    
+            
+    
         </div>
-
-        <div class="formInputs">
-            <label  >Contact</label><br>
-            <input type="text" formControlName="Contact" [(ngModel)]="this.books.contact">
-            <div *ngIf=" (validationControl.Contact.dirty || validationControl.Contact.touched || submitted) && validationControl.Contact.errors ">
-                <div *ngIf="validationControl.Contact.errors.required" style="color:red">
-                    <p>Enter the contact number</p>
-                </div>
-                <div *ngIf="validationControl.Contact.errors.pattern || validationControl.Contact.errors.minlength || validationControl.Contact.errors.maxlength" style="color:red">
-                    <p>Phone Number must be atleast 10 numbers</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="formInputs">
-            <label  >Publisher</label><br>
-            <input type="text" formControlName="Publisher" [(ngModel)]="this.books.publisher">
-            <div *ngIf=" (validationControl.Publisher.dirty || validationControl.Publisher.touched || submitted) && validationControl.Publisher.errors ">
-                <div *ngIf="validationControl.Publisher.errors.required" style="color:red">
-                    <p>Enter the publisher</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="formInputs">
-            <label  >Copies</label><br>
-            <input type="number" formControlName="Copies" [(ngModel)]="this.books.copies">
-            <div *ngIf=" (validationControl.Copies.dirty || validationControl.Copies.touched || submitted) && validationControl.Copies.errors ">
-                <div *ngIf="validationControl.Copies.errors.required" style="color:red">
-                    <p>Enter the number of copies</p>
-                </div>
-                <div *ngIf="validationControl.Copies.errors.min" style="color:red">
-                    <p>Enter the number of copies minimum 1</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="formInputs">
-            <label >Genres</label><br>
-            <select formControlName="Genres"  [(ngModel)]="this.books.genres">  
-                <option default selected [value]="books.genres" >{{books.genres}}</option>                             
-                <option *ngIf="books.genres !=='Noval'" value="Noval" >Noval</option>
-                <option *ngIf="books.genres !=='Study'" value="Study">Study</option>
-                <option *ngIf="books.genres !=='Programming'" value="Programming">Programming</option>
-                <option  *ngIf="books.genres !=='Thriller'" value="Thriller">Thriller</option>
-              </select>
-              <div *ngIf=" (validationControl.Genres.dirty || validationControl.Genres.touched || submitted ) && validationControl.Genres.errors">
-                <div *ngIf="validationControl.Genres.errors.required" style="color:red">
-                    <p>select Genres</p>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <div class="formInputs">       
-            <button type="submit">submit</button>&nbsp;
-        </div>
-
-    </div>
-</form>
+    </form>
+</div>

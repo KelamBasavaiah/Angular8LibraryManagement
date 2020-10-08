@@ -67,17 +67,17 @@
             </div>
             <div class="form-row">
                 <label>Contact No:</label>
-                <input type="text" class="form-control" name="contact" #contact="ngModel" [(ngModel)]="book.contact" pattern="[0-9]*" maxlength="10" required>
+                <input type="text" class="form-control" name="contact" #contact="ngModel" [(ngModel)]="book.contact" pattern="[0-9]*" maxlength="10" minlength="10"equired>
                 <span *ngIf="contact.invalid && contact.touched" class="invalid-feedback">                
                     <span *ngIf="contact.errors.required">Contact No is required</span>
                     <span *ngIf="contact.errors.pattern">Contact No must be numbers</span>
                 </span>
 
             </div>
-            <!-- <div class="form-row">
+            <div class="form-row">
                 <label>Enter Published Date :</label>
-                <input type="date" class="form-control" name="publishedDate" #publishedDate="ngModel" [(ngModel)]="book.publishedDate" required>
-            </div> -->
+                <input type="date" class="form-control" name="publishedDate" #publishedDate="ngModel" [(ngModel)]="book.publishedDate">
+            </div>
             <div class="form-row">
                 <label>Enter No.of.Copies :</label>
                 <input type="number" class="form-control" name="copies" #copies="ngModel" [(ngModel)]="book.copies" min="1" pattern="[0-9]*" required>
@@ -92,9 +92,6 @@
             <button class="btn btn-danger" type="reset" id="btnReset">Reset</button>
         </form>
         
-    </div>
-    <div *ngIf="result">
-        Book is Added successfully
     </div>
  </div>
  

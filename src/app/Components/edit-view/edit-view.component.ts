@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BookDetails } from '../../Entities/book-details';
 import { BookService } from '../../Services/book.service';
 
@@ -11,7 +12,7 @@ import { BookService } from '../../Services/book.service';
 })
 export class EditViewComponent implements OnInit {
 
-  constructor(private bookServices:BookService,private myActiveRoute:ActivatedRoute,private fb:FormBuilder,private router: Router) { 
+  constructor(private bookServices:BookService,private myActiveRoute:ActivatedRoute,private fb:FormBuilder,private router: Router,private toastr:ToastrService) { 
   
   }
 
@@ -39,10 +40,16 @@ get validationControl() {
   {
     this.submitted=true;
     if (this.EditForm.invalid) {
+      this.toastr.warning('Something went wrong...','Check & Update!!!')
       return;
     }
     console.log(this.EditForm.value);
-    this.bookServices.updateArray(this.EditForm.value);
+    
+    if(this.bookServices.updateArray(this.EditForm.value)){
+      this.toastr.success('Book Updated!', 'Success!');
+    }else{
+      this.toastr.warning('something went wrong!', 'Failed!');
+    }
     this.router.navigate(["ViewBooks"]);
   }
 
@@ -50,7 +57,7 @@ get validationControl() {
     return new Date().toISOString().split('T')[0]
  }
 
-  GetEditData(){
+  getEditData(){
     this.books = this.bookServices.getBook(this.book.id);
     console.log(this.books);
   }
@@ -61,7 +68,7 @@ get validationControl() {
         this.book.id = res["id"];
     });
     console.log(this.book.id);
-    this.GetEditData()
+    this.getEditData()
   }
 
 }
