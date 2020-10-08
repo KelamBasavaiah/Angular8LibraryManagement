@@ -34,7 +34,7 @@ export class BookService {
     for(var i in this.books){
       if(this.books[i].id == UpdatedArray.Id){
         this.books[i].name = UpdatedArray.BookName;
-        this.books[i].author_name = UpdatedArray.AuthorName; 
+        this.books[i].authorName = UpdatedArray.AuthorName; 
         this.books[i].publishedDate = UpdatedArray.publishedDate;
         this.books[i].contact = UpdatedArray.Contact;
         this.books[i].edition = UpdatedArray.Edition;
@@ -48,13 +48,8 @@ export class BookService {
     return this.let;
   }
 
-  addBook(book:BookDetails):boolean{
-    if(this.books.push(book)){
-      return true;
-    }
-    else{
-      return false;
-    }
+  addBook(book:BookDetails){
+    return this.http.post("https://localhost:44328/api/Book",book);
   }
 
 }
