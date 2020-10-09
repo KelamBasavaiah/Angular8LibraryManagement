@@ -10,7 +10,7 @@
                 <th>#</th>
                 <th>Id  <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('id')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('id')"></span></th>
                 <th>Name  <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('name')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('name')"></span></th>
-                <th>Author <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('authorName')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('authorName')"></span></th>
+                <th>Author <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('author_name')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('author_name')"></span></th>
                 <th>edition <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('edition')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('edition')"></span></th>
                 <th>price <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('price')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('price')"></span></th>
                 <th>publisher <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('publisher')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('publisher')"></span></th>
@@ -26,7 +26,7 @@
                 <td>{{i+1}}</td>
                 <td>{{k.id}}</td>
                 <td>{{k.name}}</td>
-                <td>{{k.authorName}}</td>
+                <td>{{k.author_name}}</td>
                 <td>{{k.edition}}</td>
                 <td>{{k.price}}</td>
                 <td>{{k.publisher}}</td>

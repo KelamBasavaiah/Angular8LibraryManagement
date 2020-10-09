@@ -23,17 +23,15 @@ export class AddBookComponent implements OnInit {
   insertBook(){
     debugger
     console.log(this.book);
-    this.bookService.addBook(this.book).subscribe(res=>{
-      console.log(res);
-      if(res==true)
-      {
-        this.toastr.success('Book Added!', 'Success!');
-        this.router.navigateByUrl("/ViewBooks");
-      }
-      else
-        this.toastr.warning('Something went wrong!', 'Failed!');
-    })
-    
+    if(this.bookService.addBook(this.book)){
+      // this.result="Book added";
+      this.toastr.success('Book Added!', 'Success!');
+      this.result="Book added";
+      this.router.navigateByUrl("/ViewBooks");
+    }
+    else
+      // this.result="some error ";
+      this.toastr.warning('Something went wrong!', 'Failed!');
   }
 
   ngOnInit() {
