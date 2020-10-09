@@ -24,7 +24,11 @@ export class ViewBooksComponent implements OnInit {
   }
   deleteBook(id)
   {
-    if(confirm('Are sure delete this book '+ id+" ?")){this.books=this.bookServices.deleteBookById(id);}
+    if(confirm('Are sure delete this book '+ id+" ?"))
+    {
+      this.bookServices.deleteBookById(id);
+      this.books=this.bookServices.getAllBooks();
+    }
     
   }
   

@@ -21,13 +21,11 @@ export class BookService {
   }
 
   getBook(id){
-    return this.books.find(x=>x.id === id)    
+    return this.books.find(x=>x.id === id)      
   }
 
   deleteBookById(id){
-    this.books= this.books.filter(x=>x.id != id?1:0)
-    return  this.books
-    
+    this.http.delete("https://localhost:44328/api/Book/"+id).subscribe((data:any[])=>console.log(data))
   }
   let:Boolean = false;
   updateArray(UpdatedArray){
