@@ -44,13 +44,8 @@ export class BookService {
     return this.let;
   }
 
-  addBook(book:BookDetails):boolean{
-    if(this.books.push(book)){
-      return true;
-    }
-    else{
-      return false;
-    }
+  addBook(book:BookDetails){
+    return this.http.post("https://localhost:44328/api/Book",book);
   }
 
 }
