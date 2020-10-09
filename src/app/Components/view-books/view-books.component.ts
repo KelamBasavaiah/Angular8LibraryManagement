@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BookDetails } from '../../Entities/book-details';
 import { BookService } from '../../Services/book.service';
 
@@ -14,7 +15,7 @@ export class ViewBooksComponent implements OnInit {
    asending:boolean=false;decending:boolean=true;
   public searchString:string="";
   
-  constructor(private bookServices:BookService,private router: Router) { 
+  constructor(private bookServices:BookService,private router: Router,private toastr:ToastrService) { 
     
   }
   getAllBooks(){
@@ -24,12 +25,16 @@ export class ViewBooksComponent implements OnInit {
   {
     this.router.navigate(["editView", id]);
   }
-  deleteBook(id)
+   deleteBook(id)
   {
     if(confirm('Are sure delete this book '+ id+" ?"))
     {
-      this.bookServices.deleteBookById(id);
-      this.getAllBooks();
+       this.bookServices.deleteBookById(id).subscribe((data:any)=>{
+        if(data){this.toastr.success('Book Delte!', 'Success!');}
+        else{this.toastr.warning('Something went wrong!', 'Failed!');}
+         this.getAllBooks()
+        });
+       
     }
     
   }
@@ -67,7 +72,7 @@ export class ViewBooksComponent implements OnInit {
   this.searchString='';
   this.getAllBooks();
   }
-
+ngOnChages(){}
   ngOnInit() {
     this.getAllBooks();
   }

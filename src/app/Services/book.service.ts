@@ -23,7 +23,7 @@ export class BookService {
   }
 
   deleteBookById(id){
-    this.http.delete("https://localhost:44328/api/Book/"+id).subscribe((data:any[])=>console.log(data))
+   return this.http.delete("https://localhost:44328/api/Book/"+id)
   }
   let:Boolean = false;
   updateArray(UpdatedArray){
