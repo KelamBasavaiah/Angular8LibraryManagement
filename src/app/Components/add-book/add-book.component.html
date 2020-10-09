@@ -67,7 +67,7 @@
             </div>
             <div class="form-row">
                 <label>Contact No:</label>
-                <input type="text" class="form-control" name="contact" #contact="ngModel" [(ngModel)]="book.contact" pattern="[0-9]*" maxlength="10" minlength="10"equired>
+                <input type="text" class="form-control" name="contact" #contact="ngModel" [(ngModel)]="book.contact" pattern="[0-9]*" maxlength="10" minlength="10" required>
                 <span *ngIf="contact.invalid && contact.touched" class="invalid-feedback">                
                     <span *ngIf="contact.errors.required">Contact No is required</span>
                     <span *ngIf="contact.errors.pattern">Contact No must be numbers</span>
@@ -76,7 +76,7 @@
             </div>
             <div class="form-row">
                 <label>Enter Published Date :</label>
-                <input type="date" class="form-control" name="publishedDate" #publishedDate="ngModel" [(ngModel)]="book.publishedDate">
+                <input type="date" class="form-control" name="publishedDate" #publishedDate="ngModel" [(ngModel)]="book.publishedDate" [max]="getToday()" >
             </div>
             <div class="form-row">
                 <label>Enter No.of.Copies :</label>

@@ -20,6 +20,9 @@ export class AddBookComponent implements OnInit {
 
     this.book=new BookDetails();
   }
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
+ }
   insertBook(){
     this.bookService.addBook(this.book).subscribe(data=>{
       if(data===true){
