@@ -58,7 +58,10 @@ get validationControl() {
  }
 
   getEditData(){
-    this.books = this.bookServices.getBook(this.book.id);
+    this.bookServices.getBook(this.book.id).subscribe((data:BookDetails)=>
+    {
+      this.books=data
+    });  
     console.log(this.books);
   }
 
