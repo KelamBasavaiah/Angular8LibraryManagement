@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BookDetails } from '../../Entities/book-details';
 import { BookService } from '../../Services/book.service';
 
@@ -14,17 +15,27 @@ export class ViewBooksComponent implements OnInit {
    asending:boolean=false;decending:boolean=true;
   public searchString:string="";
   
-  constructor(private bookServices:BookService,private router: Router) { 
-    this.books=this.bookServices.getAllBooks();  
+  constructor(private bookServices:BookService,private router: Router,private toastr:ToastrService) { 
+    
   }
-
+  getAllBooks(){
+    this.bookServices.getAllBooks().subscribe((data:any[])=>{this.books=data});      
+  }
   editBook(id:string)
   {
     this.router.navigate(["editView", id]);
   }
-  deleteBook(id)
+   deleteBook(id)
   {
-    if(confirm('Are sure delete this book '+ id+" ?")){this.books=this.bookServices.deleteBookById(id);}
+    if(confirm('Are sure delete this book '+ id+" ?"))
+    {
+       this.bookServices.deleteBookById(id).subscribe((data:any)=>{
+        if(data){this.toastr.success('Book Delted!', 'Success!');}
+        else{this.toastr.warning('Something went wrong!', 'Failed!');}
+         this.getAllBooks()
+        });
+       
+    }
     
   }
   
@@ -59,9 +70,11 @@ export class ViewBooksComponent implements OnInit {
   }
  clearFilters(){
   this.searchString='';
-  this.books=this.bookServices.getAllBooks();}
-
+  this.getAllBooks();
+  }
+ngOnChages(){}
   ngOnInit() {
+    this.getAllBooks();
   }
  
 }

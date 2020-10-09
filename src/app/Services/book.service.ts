@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { BookDetails } from '../Entities/book-details';
 
 @Injectable({
@@ -11,23 +12,18 @@ export class BookService {
 
   constructor(private http:HttpClient) {}
   
-  getAllBooks():BookDetails[]
+  getAllBooks()
   { 
-    this.http.get("https://localhost:44328/api/Book").subscribe((data: any[])=>{
-      console.log(data);
-      this.books = data;
-    })  
-    return this.books
+    return this.http.get("https://localhost:44328/api/Book")
+    
   }
 
   getBook(id){
-    return this.books.find(x=>x.id === id)    
+    return this.books.find(x=>x.id === id)      
   }
 
   deleteBookById(id){
-    this.books= this.books.filter(x=>x.id != id?1:0)
-    return  this.books
-    
+   return this.http.delete("https://localhost:44328/api/Book/"+id)
   }
   let:Boolean = false;
   updateArray(UpdatedArray){
