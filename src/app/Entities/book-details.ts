@@ -1,7 +1,7 @@
 export class BookDetails {
     id:string;
     name:string;
-    authorName:string;
+    author_name:string;
     edition:number;
     price:number;
     publisher:string;
@@ -13,7 +13,7 @@ export class BookDetails {
     {
         this.id=bid;
         this.name=bname;
-        this.authorName=ba_name;
+        this.author_name=ba_name;
         this.edition=bedit;
         this.price=bprice;
         this.publisher=pub;
