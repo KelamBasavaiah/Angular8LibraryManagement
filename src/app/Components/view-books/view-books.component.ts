@@ -15,16 +15,22 @@ export class ViewBooksComponent implements OnInit {
   public searchString:string="";
   
   constructor(private bookServices:BookService,private router: Router) { 
-    this.books=this.bookServices.getAllBooks();  
+    
   }
-
+  getAllBooks(){
+    this.bookServices.getAllBooks().subscribe((data:any[])=>{this.books=data});      
+  }
   editBook(id:string)
   {
     this.router.navigate(["editView", id]);
   }
   deleteBook(id)
   {
-    if(confirm('Are sure delete this book '+ id+" ?")){this.books=this.bookServices.deleteBookById(id);}
+    if(confirm('Are sure delete this book '+ id+" ?"))
+    {
+      this.bookServices.deleteBookById(id);
+      this.getAllBooks();
+    }
     
   }
   
@@ -59,9 +65,11 @@ export class ViewBooksComponent implements OnInit {
   }
  clearFilters(){
   this.searchString='';
-  this.books=this.bookServices.getAllBooks();}
+  this.getAllBooks();
+  }
 
   ngOnInit() {
+    this.getAllBooks();
   }
  
 }
