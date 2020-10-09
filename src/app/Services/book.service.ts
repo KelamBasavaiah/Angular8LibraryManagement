@@ -19,7 +19,7 @@ export class BookService {
   }
 
   getBook(id){
-    return this.books.find(x=>x.id === id)      
+    return this.http.get("https://localhost:44328/api/Book/"+id)    
   }
 
   deleteBookById(id){
