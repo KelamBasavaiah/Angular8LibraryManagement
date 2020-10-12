@@ -21,19 +21,21 @@
             </div>
             <div class="form-row">
                 <label>Enter the Author Name :</label>
-                <input type="text" class="form-control" name="author" #author="ngModel" [(ngModel)]="book.author_name" pattern="[a-zA-Z0-9]*" required>
+                <input type="text" class="form-control" name="author" #author="ngModel" [(ngModel)]="book.author_name" pattern="[a-zA-Z0-9]*" required minlength="8">
                 <span *ngIf="author.invalid && author.touched" class="invalid-feedback">                
                     <span *ngIf="author.errors.required">Author Name is required</span>
-                    <span *ngIf="author.errors.pattern">AuthorName cannot contain space</span>
+                    <span *ngIf="author.errors.pattern">Author Name cannot contain space</span>
+                    <span *ngIf="anthor.errors.minlength">Minimum length to be 8</span>
 
                 </span>
             </div>
             <div class="form-row">
                 <label>Enter Edition :</label>
-                <input type="number" class="form-control" name="edition" #edition="ngModel" [(ngModel)]="book.edition" 
-                min="1" required>
+                <input type="number" class="form-control" name="edition" #edition="ngModel" [(ngModel)]="book.edition" min="1"
+                pattern="[0-9]*" required>
                 <span *ngIf="edition.invalid && edition.touched" class="invalid-feedback">                
                     <span *ngIf="edition.errors.required">Edition is required</span>
+                    <span *ngIf="edition.errors.pattern">Edition cannot be letters and negative numbers </span>
                 </span>
             </div>
             <div class="form-row">
@@ -41,7 +43,7 @@
                 <input type="text" class="form-control" name="price" #price="ngModel" [(ngModel)]="book.price"  pattern="[0-9]*" required>
                 <span *ngIf="price.invalid && price.touched" class="invalid-feedback">                
                     <span *ngIf="price.errors.required">Price is required</span>
-                    <span *ngIf="price.errors.pattern">price must be numbers </span>
+                    <span *ngIf="price.errors.pattern">price cannot be letters and negative numbers </span>
                 </span>
             </div>
             <div class="form-row">
@@ -83,7 +85,7 @@
                 <input type="number" class="form-control" name="copies" #copies="ngModel" [(ngModel)]="book.copies" min="1" pattern="[0-9]*" required>
                 <span *ngIf="copies.invalid && copies.touched" class="invalid-feedback">                
                     <span *ngIf="copies.errors.required">Copies is required</span>
-                    <span *ngIf="copies.errors.pattern">Copies must be numbers</span>
+                    <span *ngIf="copies.errors.pattern">Copies must be numbers and cannot be negative numbers</span>
                 </span>
 
             </div>
