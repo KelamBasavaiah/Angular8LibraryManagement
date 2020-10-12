@@ -21,16 +21,16 @@ export class EditViewComponent implements OnInit {
 
   submitted=false;
   EditForm = this.fb.group({
-  Id:['',Validators.required],
-  BookName:['',[Validators.required]],
-  AuthorName:['',[Validators.required,Validators.minLength(8)]],
-  Edition:['',[Validators.required,Validators.min(0)]],
-  Price:['',[Validators.required,Validators.min(1)]],
+  id:['',Validators.required],
+  name:['',[Validators.required]],
+  author_name:['',[Validators.required,Validators.minLength(8)]],
+  edition:['',[Validators.required,Validators.min(0)]],
+  price:['',[Validators.required,Validators.min(1)]],
   publishedDate:['',[Validators.required]],
-  Contact:['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
-  Publisher:['',[Validators.required]],
-  Copies:['',[Validators.required,Validators.min(1)]],
-  Genres:['',[Validators.required]]
+  contact:['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+  publisher:['',[Validators.required]],
+  copies:['',[Validators.required,Validators.min(1)]],
+  genres:['',[Validators.required]]
 })
 get validationControl() {
    return this.EditForm.controls; 
@@ -44,14 +44,17 @@ get validationControl() {
       return;
     }
     console.log(this.EditForm.value);
-    
-    if(this.bookServices.updateArray(this.EditForm.value)){
-      this.toastr.success('Book Updated!', 'Success!');
-    }else{
-      this.toastr.warning('something went wrong!', 'Failed!');
-    }
+    debugger;
+    this.bookServices.updateArray(this.EditForm.value.id,this.EditForm.value).subscribe((data:any)=>{
+      if(data){
+        this.toastr.success('Book Updated!', 'Success!');
+      }else{
+        this.toastr.warning('something went wrong!', 'Failed!');
+      }
+    })
     this.router.navigate(["ViewBooks"]);
   }
+
 
   getToday(): string {
     return new Date().toISOString().split('T')[0]
