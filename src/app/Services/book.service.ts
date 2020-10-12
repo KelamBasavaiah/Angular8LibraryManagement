@@ -26,22 +26,8 @@ export class BookService {
    return this.http.delete("https://localhost:44328/api/Book/"+id)
   }
   let:Boolean = false;
-  updateArray(UpdatedArray){
-    for(var i in this.books){
-      if(this.books[i].id == UpdatedArray.Id){
-        this.books[i].name = UpdatedArray.BookName;
-        this.books[i].author_name = UpdatedArray.AuthorName; 
-        this.books[i].publishedDate = UpdatedArray.publishedDate;
-        this.books[i].contact = UpdatedArray.Contact;
-        this.books[i].edition = UpdatedArray.Edition;
-        this.books[i].genres = UpdatedArray.Genres;
-        this.books[i].publisher = UpdatedArray.Publisher;
-        this.books[i].price = UpdatedArray.Price;
-        this.books[i].copies = UpdatedArray.Copies;
-        return this.let = true;
-      }
-    }
-    return this.let;
+  updateArray(id,UpdatedArray:BookDetails){
+    return this.http.put("https://localhost:44328/api/Book/"+id,UpdatedArray)
   }
 
   addBook(book:BookDetails){
