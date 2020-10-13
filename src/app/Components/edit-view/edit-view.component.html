@@ -66,7 +66,7 @@
     
                 <div class="form-group">
                     <label >Published Date</label><br>
-                    <input type="date" class="form-control" formControlName="publishedDate" [(ngModel)]="this.books.publishedDate" [max]="getToday()">
+                    <input type="date" class="form-control" formControlName="publishedDate"  [(ngModel)]="this.books.publishedDate" value="{{books.publishedDate | date:'yyyy-MM-dd'}}" [max]="getToday()">
                     
                     <div *ngIf=" (validationControl.publishedDate.dirty || validationControl.publishedDate.touched || submitted ) && validationControl.publishedDate.errors">
                         <div *ngIf="validationControl.publishedDate.errors.required" style="color:red">
