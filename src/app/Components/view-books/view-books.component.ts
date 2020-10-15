@@ -30,7 +30,7 @@ export class ViewBooksComponent implements OnInit {
     if(confirm('Are sure delete this book '+ id+" ?"))
     {
        this.bookServices.deleteBookById(id).subscribe((data:any)=>{
-        if(data){this.toastr.success('Book Delted!', 'Success!');}
+        if(data){this.toastr.success('Book Deleted!', 'Success!');}
         else{this.toastr.warning('Something went wrong!', 'Failed!');}
          this.getAllBooks()
         });
