@@ -3,11 +3,11 @@
     <button [disabled]="searchString.length<2" (click)=search(searchString)>Search</button>
     <br><button *ngIf="searchString.length>0" style="float: right;"(click)=clearFilters()>clear</button>
 </div>
-<div>
+<div class="table">
     <table>
         <thead class="tableHead">
             <tr>
-                <th>#</th>
+                <th>sl.no</th>
                 <th>Id  <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('id')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('id')"></span></th>
                 <th>Name  <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('name')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('name')"></span></th>
                 <th>Author <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('author_name')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('author_name')"></span></th>
@@ -22,7 +22,7 @@
             </tr>            
         </thead>
         <tbody>
-            <tr *ngFor="let k of books ; index as i">
+            <tr  *ngFor="let k of books ; index as i">
                 <td>{{i+1}}</td>
                 <td>{{k.id}}</td>
                 <td>{{k.name}}</td>
@@ -32,10 +32,13 @@
                 <td>{{k.publisher}}</td>
                 <td>{{k.genres}}</td>
                 <td>{{k.contact}}</td>
-                <td>{{k.publishedDate}}</td>                
+                <td>{{k.publishedDate | date}}</td>                
                 <td>{{k.copies}}</td>
-                <td><a class ="glyphicon glyphicon-edit" (click)=editBook(k.id)></a> &nbsp;<a class="glyphicon glyphicon-remove" (click)=deleteBook(k.id)></a></td>
-            </tr>
-        </tbody>
+                <td><a class ="glyphicon glyphicon-edit" title="Edit" (click)=editBook(k.id)></a> &nbsp;<a class="glyphicon glyphicon-remove" (click)=deleteBook(k.id) title="Delete"></a></td>
+            </tr>            
+        </tbody>        
     </table>
+    <div *ngIf="books.length<1" style="margin-left: 20px;">
+        <p>No records Found . If you have applied any filters please Modify.</p>
+    </div>
 </div>
