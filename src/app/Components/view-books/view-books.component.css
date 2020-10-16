@@ -2,18 +2,23 @@
   float: right;
   margin: 5px 0px 0px 0px;
 }
-table, td, th {
+
+  .table{
+    width: 100%;
+    margin-top: 80px  ; 
+  }
+  table, td, th {
     border: 1px;
   }
-  
   table {
     border-style: solid;
-    border-color: coral;
-    width: 100%;
-    margin: 60px 10px 10px 10px; 
-
+    border-color: darkgray;
+    margin: 0px 0px 0px 40px;   
+    width: 94%;
+ 
   }
-  
+
+   
   th {
     text-align:left;
     font-size: 16px;
