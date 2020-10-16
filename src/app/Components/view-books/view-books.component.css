@@ -1,11 +1,12 @@
 .search{
   float: right;
-  margin: 5px 0px 0px 0px;
+  margin: 5px 5px 0px 0px;
 }
 
   .table{
     width: 100%;
-    margin-top: 80px  ; 
+    margin-top: 80px  ;
+    
   }
   table, td, th {
     border: 1px;
@@ -15,7 +16,7 @@
     border-color: darkgray;
     margin: 0px 0px 0px 40px;   
     width: 94%;
- 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
   }
 
    

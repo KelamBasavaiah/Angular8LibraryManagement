@@ -10,8 +10,9 @@ import { BookService } from '../../Services/book.service';
   styleUrls: ['./view-books.component.css']
 })
 export class ViewBooksComponent implements OnInit {
-   books:BookDetails[];
+   books:BookDetails[]=[];
    book:BookDetails;
+   le:number;
    asending:boolean=false;decending:boolean=true;
   public searchString:string="";
   
