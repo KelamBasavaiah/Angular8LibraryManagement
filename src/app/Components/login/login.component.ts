@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router) { }
 login(){this.router.navigate(["/Admin/home"]);}
+Userlogin(){this.router.navigate(["/User/home"]);}
   ngOnInit() {
   }
 
