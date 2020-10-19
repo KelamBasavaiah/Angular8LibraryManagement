@@ -24,7 +24,7 @@ export class ViewBooksComponent implements OnInit {
   }
   editBook(id:string)
   {
-    this.router.navigate(["editView", id]);
+    this.router.navigate(["/Admin/editView", id]);
   }
    deleteBook(id)
   {
