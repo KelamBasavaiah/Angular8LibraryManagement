@@ -6,18 +6,22 @@ import { EditViewComponent } from './Components/edit-view/edit-view.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { ViewBooksComponent } from './Components/view-books/view-books.component';
+import { LoginService } from './Services/login.service';
 
 
 const routes: Routes = [
-  {path:"Admin",component:AdminComponent,
+  {path:"Admin",component:AdminComponent ,canActivate:[LoginService],
 children:[
-  {path:"ViewBooks",component:ViewBooksComponent},
-  {path:"home",component:HomeComponent},
-  {path:"addBook",component:AddBookComponent},
-  {path:"editView/:id",component:EditViewComponent}
+  {path:"ViewBooks",component:ViewBooksComponent,canActivate:[LoginService]},
+  {path:"home",component:HomeComponent,canActivate:[LoginService]},
+  {path:"addBook",component:AddBookComponent,canActivate:[LoginService]},
+  {path:"editView/:id",component:EditViewComponent,canActivate:[LoginService]}
 ]},
   
-  {path:'', component:LoginComponent}
+{path:"login",component:LoginComponent},
+{path:'', component:LoginComponent},
+{path:'**', component:LoginComponent}
+  
 ];
 
 @NgModule({

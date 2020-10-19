@@ -8,6 +8,9 @@
         <li><a routerLink="/Admin/ViewBooks" routerLinkActive="active">View All Books</a></li>
         <li><a routerLink="/Admin/addBook">Enter Books</a></li>
       </ul>
+      <div>
+        <button (click)='logout()' style="float: right;">LogOut</button>
+      </div>
     </div>
   </nav>
   <router-outlet></router-outlet>
