@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminComponent } from './Components/admin/admin.component';
+import { LoginComponent } from './Components/login/login.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ViewBooksComponent,
     HomeComponent,
     EditViewComponent,
-    AddBookComponent
+    AddBookComponent,
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
