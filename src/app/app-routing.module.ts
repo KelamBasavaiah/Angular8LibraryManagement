@@ -5,6 +5,8 @@ import { AdminComponent } from './Components/admin/admin.component';
 import { EditViewComponent } from './Components/edit-view/edit-view.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
+import { MyBooksComponent } from './Components/my-books/my-books.component';
+import { UserComponent } from './Components/user/user.component';
 import { ViewBooksComponent } from './Components/view-books/view-books.component';
 
 
@@ -16,7 +18,12 @@ children:[
   {path:"addBook",component:AddBookComponent},
   {path:"editView/:id",component:EditViewComponent}
 ]},
-  
+  {path:"User",component:UserComponent,
+children:[
+  {path:"ViewBooks",component:ViewBooksComponent},
+  {path:"home",component:HomeComponent},
+  {path:"myBooks",component:MyBooksComponent}
+]},
   {path:'', component:LoginComponent}
 ];
 
