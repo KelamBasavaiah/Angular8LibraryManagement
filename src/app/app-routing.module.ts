@@ -9,23 +9,20 @@ import { MyBooksComponent } from './Components/my-books/my-books.component';
 import { UserViewBooksComponent } from './Components/user-view-books/user-view-books.component';
 import { UserComponent } from './Components/user/user.component';
 import { ViewBooksComponent } from './Components/view-books/view-books.component';
+import { LoginService } from './Services/login.service';
 
 
 const routes: Routes = [
-  {path:"Admin",component:AdminComponent,
+  {path:"Admin",component:AdminComponent ,canActivate:[LoginService],
 children:[
-  {path:"ViewBooks",component:ViewBooksComponent},
-  {path:"home",component:HomeComponent},
-  {path:"addBook",component:AddBookComponent},
-  {path:"editView/:id",component:EditViewComponent}
+  {path:"ViewBooks",component:ViewBooksComponent,canActivate:[LoginService]},
+  {path:"home",component:HomeComponent,canActivate:[LoginService]},
+  {path:"addBook",component:AddBookComponent,canActivate:[LoginService]},
+  {path:"editView/:id",component:EditViewComponent,canActivate:[LoginService]}
 ]},
-  {path:"User",component:UserComponent,
-children:[
-  {path:"ViewBooks",component:UserViewBooksComponent},
-  {path:"home",component:HomeComponent},
-  {path:"myBooks",component:MyBooksComponent}
-]},
-  {path:'', component:LoginComponent}
+{path:"login",component:LoginComponent},
+{path:'', component:LoginComponent},
+{path:'**', component:LoginComponent}
 ];
 
 @NgModule({
