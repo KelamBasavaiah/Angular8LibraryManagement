@@ -14,6 +14,9 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminComponent } from './Components/admin/admin.component';
 import { LoginComponent } from './Components/login/login.component';
+import { UserComponent } from './Components/user/user.component';
+import { MyBooksComponent } from './Components/my-books/my-books.component';
+import { UserViewBooksComponent } from './Components/user-view-books/user-view-books.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { LoginComponent } from './Components/login/login.component';
     EditViewComponent,
     AddBookComponent,
     AdminComponent,
-    LoginComponent
+    LoginComponent,
+    UserComponent,
+    MyBooksComponent,
+    UserViewBooksComponent
   ],
   imports: [
     BrowserModule,

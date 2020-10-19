@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UserViewBooksComponent } from '../Components/user-view-books/user-view-books.component';
 import { BookDetails } from '../Entities/book-details';
 
 @Injectable({
@@ -32,6 +33,10 @@ export class BookService {
 
   addBook(book:BookDetails){
     return this.http.post("https://localhost:44328/api/Book",book);
+  }
+
+  lendingBook(bookId:string,user:UserViewBooksComponent){
+    return this.http.post("https://localhost:44328/api/Book"+bookId,user);
   }
 
 }

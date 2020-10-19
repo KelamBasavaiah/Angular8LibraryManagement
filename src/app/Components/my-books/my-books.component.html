@@ -1,0 +1,24 @@
+
+<div class="table">
+    <table>
+        <thead class="tableHead">
+            <tr>
+                <th>sl.no</th>
+                <th>BookId  </th>
+                <th>Due Date  </th>
+                <th></th>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr  *ngFor="let book of userBooks ; index as i">
+                <td>{{i+1}}</td>
+                <td>{{book.bookId}}</td>
+                <td>{{book.dueDate}}</td>
+                <td><button (click)=returnBook(book)>Return Book</button> </td>
+            </tr>            
+        </tbody>        
+    </table>
+    <div *ngIf="userBooks.length<1" style="margin-left: 450px;top: 10px;">
+        <p>No records Found......</p>
+    </div>
+</div>
