@@ -1,0 +1,44 @@
+<div class="search">
+    <input [(ngModel)]="searchString">&nbsp;
+    <button [disabled]="searchString.length<2" (click)=search(searchString) [style.background-color]="(searchString.length>1)? 'mediumspringgreen':''">Search</button>
+    <br><button *ngIf="searchString.length>0" style="float: right;margin-top: 2px;"(click)=clearFilters()>clear</button>
+</div>
+<div class="table">
+    <table>
+        <thead class="tableHead">
+            <tr>
+                <th>sl.no</th>
+                <th>Id  <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('id')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('id')"></span></th>
+                <th>Name  <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('name')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('name')"></span></th>
+                <th>Author <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('author_name')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('author_name')"></span></th>
+                <th>Edition <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('edition')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('edition')"></span></th>
+                <th>Price <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('price')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('price')"></span></th>
+                <th>Publisher <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('publisher')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('publisher')"></span></th>
+                <th>Genres <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('genres')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('genres')"></span></th>
+                <th>Contact </th>
+                <th>Published Date <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('publishedDate')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('publishedDate')"></span></th>
+                <th>Copies <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('copies')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('copies')"></span></th>
+                <th></th>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr  *ngFor="let k of books ; index as i">
+                <td>{{i+1}}</td>
+                <td>{{k.id}}</td>
+                <td>{{k.name}}</td>
+                <td>{{k.author_name}}</td>
+                <td>{{k.edition}}</td>
+                <td>{{k.price}}</td>
+                <td>{{k.publisher}}</td>
+                <td>{{k.genres}}</td>
+                <td>{{k.contact}}</td>
+                <td>{{k.publishedDate | date}}</td>                
+                <td>{{k.copies}}</td>
+                <button class="btn btn-primary" (click)="lendingBook(k.id)" [disabled]="k.copies<1">Lending</button>
+            </tr>            
+        </tbody>        
+    </table>
+    <div *ngIf="books.length<1" style="margin-left: 450px;top: 10px;">
+        <p>No records Found . If you have applied any filters please Modify.</p>
+    </div>
+</div>
