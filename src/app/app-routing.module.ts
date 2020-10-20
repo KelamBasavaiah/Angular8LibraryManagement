@@ -21,6 +21,7 @@ children:[
   {path:"editView/:id",component:EditViewComponent,canActivate:[LoginService]}
 ]},
 {path:"login",component:LoginComponent},
+{path:"mybooks",component:MyBooksComponent},
 {path:'', component:LoginComponent},
 {path:'**', component:LoginComponent}
 ];

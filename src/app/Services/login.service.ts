@@ -20,6 +20,9 @@ result:boolean;
     
     return this.result;
   }
+  getBooksforUser(userName){
+    return this.http.get("https://localhost:44328/api/User?userName="+userName)
+  }
 
 }
 
