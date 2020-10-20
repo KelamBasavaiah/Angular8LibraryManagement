@@ -6,8 +6,11 @@
       <ul class="nav navbar-nav">
         <li><a routerLink="/Admin/home" routerLinkActive="active">Home</a></li>
         <li><a routerLink="/Admin/ViewBooks" routerLinkActive="active">View All Books</a></li>
-        <li><a routerLink="/Admin/addBook">Enter Books</a></li>
+        <li><a routerLink="/Admin/addBook">Add Books</a></li>
       </ul>
+      <div>
+        <button (click)='logout()' style="float: right;">LogOut</button>
+      </div>
     </div>
   </nav>
   <router-outlet></router-outlet>

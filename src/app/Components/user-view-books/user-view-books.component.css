@@ -1,0 +1,35 @@
+.search{
+    float: right;
+    margin: 5px 5px 0px 0px;
+  }
+  
+    .table{
+      width: 100%;
+      margin-top: 80px  ;
+      
+    }
+    table, td, th {
+      border: 1px;
+    }
+    table {
+      border-style: solid;
+      border-color: darkgray;
+      margin: 0px 0px 0px 40px;   
+      width: 94%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    }
+  
+     
+    th {
+      text-align:left;
+      font-size: 16px;
+      background-color: #f5f5f5;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    
+    }
+    tr:hover {background-color: #f5f5f5;}
+    .tableHead .glyphicon {font-size: 8px;}
+    .glyphicon{cursor: pointer;}
