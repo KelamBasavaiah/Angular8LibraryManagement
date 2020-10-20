@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BookDetails } from 'src/app/Entities/book-details';
+import { User } from 'src/app/Entities/user';
 import { BookService } from 'src/app/Services/book.service';
 
 @Component({
@@ -13,12 +14,13 @@ export class UserViewBooksComponent implements OnInit {
 
   books:BookDetails[]=[];
   book:BookDetails;
+  user:User;
   le:number;
   asending:boolean=false;decending:boolean=true;
   public searchString:string="";
   
   constructor(private bookServices:BookService,private router: Router,private toastr:ToastrService) { 
-    
+    this.user=new User();
   }
   getAllBooks(){
     this.bookServices.getAllBooks().subscribe((data:any[])=>{this.books=data});      
@@ -54,7 +56,10 @@ export class UserViewBooksComponent implements OnInit {
         
   }
   lendingBook(bookId){
-    
+    this.user.userName='bhuvana';
+    this.bookServices.lendingBook(bookId,this.user).subscribe((result:any[])=>{
+      this.books=result;
+    })
   }
 
  clearFilters(){

@@ -7,7 +7,6 @@ import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { MyBooksComponent } from './Components/my-books/my-books.component';
 import { UserViewBooksComponent } from './Components/user-view-books/user-view-books.component';
-import { UserComponent } from './Components/user/user.component';
 import { ViewBooksComponent } from './Components/view-books/view-books.component';
 import { LoginService } from './Services/login.service';
 
@@ -22,6 +21,7 @@ children:[
 ]},
 {path:"login",component:LoginComponent},
 {path:"mybooks",component:MyBooksComponent},
+{path:"userViewBooks",component:UserViewBooksComponent},
 {path:'', component:LoginComponent},
 {path:'**', component:LoginComponent}
 ];
