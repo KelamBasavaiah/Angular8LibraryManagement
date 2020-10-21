@@ -57,8 +57,13 @@ export class UserViewBooksComponent implements OnInit {
   }
   lendingBook(bookId){
     this.user.userId=1;
-    this.bookServices.lendingBook(bookId,this.user).subscribe((result:any[])=>{
-      this.books=result;
+    this.bookServices.lendingBook(bookId,this.user).subscribe((result)=>{
+      if(result===true){
+        this.toastr.success('Book is Lended!', 'Success!');
+      }
+      else{
+        this.toastr.warning('Something went wrong!', 'Failed!');
+      }
     })
   }
 
