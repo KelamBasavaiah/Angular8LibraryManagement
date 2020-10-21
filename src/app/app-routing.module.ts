@@ -5,24 +5,37 @@ import { AdminComponent } from './Components/admin/admin.component';
 import { EditViewComponent } from './Components/edit-view/edit-view.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
+import { MainComponent } from './Components/main/main.component';
 import { MyBooksComponent } from './Components/my-books/my-books.component';
+import { UserHomeComponent } from './Components/user-home/user-home.component';
 import { UserViewBooksComponent } from './Components/user-view-books/user-view-books.component';
 import { ViewBooksComponent } from './Components/view-books/view-books.component';
 import { LoginService } from './Services/login.service';
 
 
 const routes: Routes = [
-  {path:"Admin",component:AdminComponent ,canActivate:[LoginService],
-children:[
-  {path:"ViewBooks",component:ViewBooksComponent,canActivate:[LoginService]},
+  {path:"main",component:MainComponent,canActivate:[LoginService],
+  children:[
   {path:"home",component:HomeComponent,canActivate:[LoginService]},
-  {path:"addBook",component:AddBookComponent,canActivate:[LoginService]},
-  {path:"editView/:id",component:EditViewComponent,canActivate:[LoginService]}
+  {path:"user",component:UserHomeComponent,canActivate:[LoginService],
+       children:[
+        {path:"mybooks",component:MyBooksComponent,canActivate:[LoginService]},
+        {path:"userViewBooks",component:UserViewBooksComponent,canActivate:[LoginService]}
+   ]},
+   {path:"Admin",component:AdminComponent ,canActivate:[LoginService],
+         children:[
+          {path:"ViewBooks",component:ViewBooksComponent,canActivate:[LoginService]},
+          {path:"home",component:HomeComponent,canActivate:[LoginService]},
+          {path:"addBook",component:AddBookComponent,canActivate:[LoginService]},
+          {path:"editView/:id",component:EditViewComponent,canActivate:[LoginService]}
+    ]},
 ]},
+
+ 
 {path:"login",component:LoginComponent},
 {path:"mybooks",component:MyBooksComponent},
 {path:"userViewBooks",component:UserViewBooksComponent},
-{path:'', component:LoginComponent},
+{path:'', redirectTo:'/login',pathMatch:'full'},
 {path:'**', component:LoginComponent}
 ];
 
