@@ -16,7 +16,7 @@ login(username,password)
   this.loginS.authenticateUser(username,password).subscribe((data:any)=>{
     if(data.aurthorize){
       this.loginS.setRoute(data);
-      this.router.navigate(["/Admin/home"]);
+      this.router.navigate(["/main/home"]);
     }
     else{
       alert("Enter valid credentials");
