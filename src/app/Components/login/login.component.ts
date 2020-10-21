@@ -14,7 +14,7 @@ login(username,password)
 {
   console.log(username,password)
   this.loginS.authenticateUser(username,password).subscribe((data:any)=>{
-    if(data){
+    if(data.aurthorize){
       this.loginS.setRoute(data);
       this.router.navigate(["/Admin/home"]);
     }
