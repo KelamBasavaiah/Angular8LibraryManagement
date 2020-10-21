@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/Entities/user';
+import { Login } from '../Entities/login';
 
 
 @Injectable({
@@ -8,7 +9,7 @@ import { User } from 'src/app/Entities/user';
 })
 export class LoginService {
 result:boolean;
-
+login:Login;
   constructor(private http:HttpClient) { }
 
   authenticateUser(username,password)
@@ -17,7 +18,9 @@ result:boolean;
    
   }
   setRoute(value){
-    this.result=value;
+    this.login=value;
+    console.log(this.login);
+    this.result=value.aurthorize;
   }
   canActivate() {
     
