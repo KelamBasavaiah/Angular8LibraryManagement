@@ -56,7 +56,7 @@ export class UserViewBooksComponent implements OnInit {
         
   }
   lendingBook(bookId){
-    this.user.userName='bhuvana';
+    this.user.userId=1;
     this.bookServices.lendingBook(bookId,this.user).subscribe((result:any[])=>{
       this.books=result;
     })

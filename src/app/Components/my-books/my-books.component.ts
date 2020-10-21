@@ -9,7 +9,7 @@ import { LoginService } from 'src/app/Services/login.service';
   styleUrls: ['./my-books.component.css']
 })
 export class MyBooksComponent implements OnInit {
-  userName:string = 'Mari';
+  userId:number = 1;
   userBooks:User[]=[];
 
   constructor(private loginService:LoginService,private toastr:ToastrService) { }
@@ -30,7 +30,7 @@ export class MyBooksComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getBooksforUser(this.userName)
+    this.getBooksforUser(this.userId)
   }
 
 }
