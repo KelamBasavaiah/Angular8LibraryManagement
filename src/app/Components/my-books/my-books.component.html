@@ -14,7 +14,7 @@
                 <td>{{i+1}}</td>
                 <td>{{book.bookId}}</td>
                 <td>{{book.dueDate}}</td>
-                <td><button (click)=returnBook(book)>Return Book</button> </td>
+                <td><button (click)=returnBook(book.id)>Return Book</button> </td>
             </tr>            
         </tbody>        
     </table>

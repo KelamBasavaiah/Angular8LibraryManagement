@@ -26,12 +26,12 @@ login:Login;
     
     return this.result;
   }
-  getBooksforUser(userName){
-    return this.http.get("https://localhost:44328/api/User?userName="+userName)
+  getBooksforUser(userId){
+    return this.http.get("https://localhost:44328/api/User?userId="+userId)
   }
-  returnBook(userbook){
-    console.log(userbook);
-    return this.http.delete("https://localhost:44328/api/User",userbook)
+  returnBook(userId){
+    console.log(userId);
+    return this.http.delete("https://localhost:44328/api/User/"+userId)
   }
 
 }

@@ -1,10 +1,10 @@
 export class User {
-    userName:string;
+    userId:number;
     bookId:string;
     dueDate:Date;
     id:number;
-    constructor(userName?,bookId?,dueDate?,id?){
-        this.userName=userName;
+    constructor(userId?,bookId?,dueDate?,id?){
+        this.userId=userId;
         this.bookId=bookId;
         this.dueDate=dueDate;
         this.id = id;
