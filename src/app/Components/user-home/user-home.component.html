@@ -1,7 +1,16 @@
-<div class="navBar">
+<!-- <div class="navBar">
     <nav >      
         <a routerLink="/main/user/userViewBooks" routerLinkActive="active">Library Books</a>&nbsp;  
         <a routerLink="/main/user/mybooks" routerLinkActive="active">My Books</a>&nbsp;             
     </nav>
     <router-outlet></router-outlet>
-</div>
+</div> -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">      
+      <ul class="nav navbar-nav">        
+        <li><a routerLink="/main/user/userViewBooks" routerLinkActive="active">Library Books</a></li>
+        <li><a routerLink="/main/user/mybooks">My Books</a></li>
+      </ul>      
+    </div>
+  </nav>
+  <router-outlet></router-outlet>

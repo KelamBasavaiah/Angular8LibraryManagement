@@ -10,12 +10,28 @@ import { LoginService } from 'src/app/Services/login.service';
 export class MainComponent implements OnInit {
 
   isAdmin:boolean=false;
+  isAdminUser:boolean=false;
+  isUser:boolean=false;
   username:string;
   constructor(private login:LoginService,private route:Router) { }
 
 getRole(){
-if(this.login.login.role==1){this.isAdmin=true};
+  if(this.login.login.role==0)
+  {
+    this.isAdminUser=true;
+    this.isUser=true;
+  }
+  else if(this.login.login.role==1)
+  {
+    debugger;
+    this.isAdmin=true;
+  }
+  else
+  {
+    this.isUser=true
+  };
 this.username=this.login.login.username;
+console.log(this.isAdminUser,this.isAdmin,this.isUser);
 }
   logout(){
   this.login.setRoute(false);
