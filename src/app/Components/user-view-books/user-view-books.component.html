@@ -7,8 +7,8 @@
     <table>
         <thead class="tableHead">
             <tr>
-                <th>sl.no</th>
-                <th>Id  <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('id')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('id')"></span></th>
+                <th>S.No</th>
+                <th>Book Id  <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('id')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('id')"></span></th>
                 <th>Name  <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('name')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('name')"></span></th>
                 <th>Author <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('author_name')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('author_name')"></span></th>
                 <th>Edition <span *ngIf="decending" class="glyphicon glyphicon-chevron-up" (click)="sort('edition')"></span><span *ngIf="! decending"class="glyphicon glyphicon-chevron-down" (click)="sort('edition')"></span></th>
@@ -34,7 +34,7 @@
                 <td>{{k.contact}}</td>
                 <td>{{k.publishedDate | date}}</td>                
                 <td>{{k.copies}}</td>
-                <button class="btn btn-primary" (click)="lendingBook(k.id)" [disabled]="k.copies<1">Lending</button>
+                <button class="btn btn-primary" (click)="lendingBook(k.id)" [disabled]="k.copies<1">Lend Book</button>
             </tr>            
         </tbody>        
     </table>

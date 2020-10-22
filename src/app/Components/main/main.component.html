@@ -1,5 +1,5 @@
 <div class="navBar" >
-    <nav >
+    <!-- <nav >
         <a >Library</a>&nbsp;
         <a routerLink="/main/home" routerLinkActive="active">Home</a>&nbsp;
         <a routerLink="/main/user/userViewBooks" routerLinkActive="active">Books</a>&nbsp;
@@ -8,10 +8,24 @@
         <p class="user">welcome {{username}}</p>
         <a  style="float: right;">Contact</a>        
                  
-    </nav>
+    </nav> -->
+    <ul>
+        <li><a>Library</a></li>
+        <li><a routerLink="/main/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/main/user/userViewBooks" routerLinkActive="active">Books</a></li>
+        <li><a *ngIf="isAdmin" routerLink="/main/Admin/ViewBooks" routerLinkActive="active">Admin</a></li>
+        <li><a>Contact</a></li>
+        <li style="float: right;"><a (click)='logout()' >Logout</a></li>
+        <li class="user">Welcome {{username}}</li>
+        
+      </ul>
     
 </div>
-<div>
+
+
+
+  <div>
     <router-outlet></router-outlet>
 </div>
+
 
