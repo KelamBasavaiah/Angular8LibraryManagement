@@ -9,7 +9,7 @@ import { LoginService } from 'src/app/Services/login.service';
   styleUrls: ['./my-books.component.css']
 })
 export class MyBooksComponent implements OnInit {
-  userId:number = 1;
+  userId:number = this.loginService.login.userId;
   userBooks:User[]=[];
 
   constructor(private loginService:LoginService,private toastr:ToastrService) { }
