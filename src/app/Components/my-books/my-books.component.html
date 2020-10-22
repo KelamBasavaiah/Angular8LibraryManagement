@@ -5,6 +5,7 @@
             <tr>
                 <th>S.No</th>
                 <th>Book Id  </th>
+                <th>Book Name</th>
                 <th>Due Date  </th>
                 <th></th>
             </tr>            
@@ -13,8 +14,9 @@
             <tr  *ngFor="let book of userBooks ; index as i">
                 <td>{{i+1}}</td>
                 <td>{{book.bookId}}</td>
+                <td>{{book.bookName}}</td>
                 <td>{{book.dueDate}}</td>
-                <td><button class="btn btn-primary" (click)=returnBook(book.id)>Return Book</button> </td>
+                <td><button class="btn btn-primary" (click)=returnBook(book)>Return Book</button> </td>
             </tr>            
         </tbody>        
     </table>
