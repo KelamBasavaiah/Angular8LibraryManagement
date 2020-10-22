@@ -3,8 +3,8 @@
     <table>
         <thead class="tableHead">
             <tr>
-                <th>sl.no</th>
-                <th>BookId  </th>
+                <th>S.No</th>
+                <th>Book Id  </th>
                 <th>Due Date  </th>
                 <th></th>
             </tr>            
@@ -14,7 +14,7 @@
                 <td>{{i+1}}</td>
                 <td>{{book.bookId}}</td>
                 <td>{{book.dueDate}}</td>
-                <td><button (click)=returnBook(book.id)>Return Book</button> </td>
+                <td><button class="btn btn-primary" (click)=returnBook(book.id)>Return Book</button> </td>
             </tr>            
         </tbody>        
     </table>
