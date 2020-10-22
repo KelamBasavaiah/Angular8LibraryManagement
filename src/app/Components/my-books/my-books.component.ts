@@ -19,11 +19,11 @@ export class MyBooksComponent implements OnInit {
     this.loginService.getBooksforUser(userName).subscribe((data:any[])=>{this.userBooks=data});  
   }
 
-  returnBook(book){
+  returnBook(book:User){
     console.log(book);
-    if(confirm('Are you sure to return this book '+ book+" ?"))
+    if(confirm('Are you sure to return this book '+ book.bookName+" ?"))
     {
-    this.loginService.returnBook(book).subscribe((data:any)=>{
+    this.loginService.returnBook(book.id).subscribe((data:any)=>{
       if(data){
         this.toastr.success('Book Returned Successfully!', 'Success!');
         this.ngOnInit();
