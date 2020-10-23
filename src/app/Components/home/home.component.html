@@ -1,3 +1,70 @@
-<div style="text-align:center">
+<!-- <div style="text-align:center">
     <img src="assets/image/lib1.jpg" width="1100" height="550">
+</div> -->
+
+<div>
+    <div class="container">
+        <div class="sliders">
+            <div *ngFor="let img of img_list; let i = index">
+                <div class="slider" *ngIf="current == i" >
+                    <img class="img" [src]="img">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div> 
+
+<div class="books">
+
+    <div class="boxes">
+       <table >
+           <thead >
+               <tr>
+                   <th class="tableHead">
+                       Available Books
+                   </th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr *ngFor="let k of books">
+                <td  class="tableDef">{{k.name}}</td>
+               </tr>
+           </tbody>
+       </table>
+    </div>
+    <div class="boxes">
+        <div class="rulesHead">
+          <p style="font-size: 16px;border-top: 6px;">Library Rules</p> 
+        </div>
+        <div>
+            <ul>
+                <li>
+                    Commercial use of the digital resources is prohibited.
+                </li>
+                <li>
+                    The user is not permitted to use the digital resources for an organisation or company outside the RU to which he is associated.
+                </li>
+                <li>
+                    The use of library resources, datafiles, (consultation) software and digital media is submitted to standard copyright rules.
+                </li>
+                <li>
+                    Printing and downloading individual journal articles and parts of book chapters is only permitted for personal us
+                </li>
+                <li>
+                    It is prohibited to systematically download, distribute, print or store substantial parts of licensed materials
+                </li>
+                <li>
+                    Publishing licensed materials through Internet or electronic networks is not permitted
+                </li>
+            </ul>                        
+        </div>
+    </div>
+    <div class="boxes">
+        <div class="alerts">
+            <p style="font-size: 16px;border-top: 6px;">Alters</p> 
+          </div>
+    </div>
+
 </div>
+
