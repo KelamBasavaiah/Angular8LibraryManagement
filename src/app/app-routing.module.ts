@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddBookComponent } from './Components/add-book/add-book.component';
+import { AddUserComponent } from './Components/add-user/add-user.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { EditViewComponent } from './Components/edit-view/edit-view.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
  
 {path:"login",component:LoginComponent},
 {path:"mybooks",component:MyBooksComponent},
+{path:"addUser",component:AddUserComponent},
 {path:"userViewBooks",component:UserViewBooksComponent},
 {path:'', redirectTo:'/login',pathMatch:'full'},
 {path:'**', component:LoginComponent}

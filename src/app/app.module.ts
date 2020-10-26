@@ -19,6 +19,7 @@ import { MyBooksComponent } from './Components/my-books/my-books.component';
 import { UserViewBooksComponent } from './Components/user-view-books/user-view-books.component';
 import { MainComponent } from './Components/main/main.component';
 import { UserHomeComponent } from './Components/user-home/user-home.component';
+import { AddUserComponent } from './Components/add-user/add-user.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { UserHomeComponent } from './Components/user-home/user-home.component';
     MyBooksComponent,
     UserViewBooksComponent,
     MainComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
