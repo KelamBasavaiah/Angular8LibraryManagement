@@ -9,6 +9,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { MainComponent } from './Components/main/main.component';
 import { MyBooksComponent } from './Components/my-books/my-books.component';
 import { UserHomeComponent } from './Components/user-home/user-home.component';
+import { UserMgmtComponent } from './Components/user-mgmt/user-mgmt.component';
 import { UserViewBooksComponent } from './Components/user-view-books/user-view-books.component';
 import { ViewBooksComponent } from './Components/view-books/view-books.component';
 import { LoginService } from './Services/login.service';
@@ -37,6 +38,7 @@ const routes: Routes = [
 {path:"mybooks",component:MyBooksComponent},
 {path:"addUser",component:AddUserComponent},
 {path:"userViewBooks",component:UserViewBooksComponent},
+{path:"usermgmt",component:UserMgmtComponent},
 {path:'', redirectTo:'/login',pathMatch:'full'},
 {path:'**', component:LoginComponent}
 ];
