@@ -7,4 +7,7 @@ import { Injectable } from '@angular/core';
 export class UserMgmtService {
 
   constructor(private http:HttpClient) { }
+  getAllUserDetails(){
+    return this.http.get("https://localhost:44328/api/UserMgmt");
+  }
 }

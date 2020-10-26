@@ -6,8 +6,8 @@ export class User extends Login{
     dueDate:Date;
     id:number;
     bookName:string;
-    phoneno:number;
-    mailid:string;
+    phoneNo:number;
+    mailId:string;
     isActive:BinaryType;
     constructor(userId?,bookId?,dueDate?,id?,bookName?,phoneno?,mailid?,isActive?){
         super();
@@ -16,8 +16,8 @@ export class User extends Login{
         this.dueDate=dueDate;
         this.id = id;
         this.bookName = bookName;
-        this.phoneno = phoneno;
-        this.mailid = mailid;
+        this.phoneNo = phoneno;
+        this.mailId = mailid;
         this.isActive = isActive;
     }
 }
