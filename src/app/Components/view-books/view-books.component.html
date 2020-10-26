@@ -1,8 +1,10 @@
 <div class="search">
     <input [(ngModel)]="searchString">&nbsp;
-    <button [disabled]="searchString.length<2" (click)=search(searchString) [style.background-color]="(searchString.length>1)? 'mediumspringgreen':''">Search</button>
-    <br><button *ngIf="searchString.length>0" style="float: right;margin-top: 2px;"(click)=clearFilters()>clear</button>
+    <button [disabled]="searchString.length<2" (click)=search(searchString) [style.background-color]="(searchString.length>1)? 'mediumspringgreen':''">Search</button>&nbsp;&nbsp;
+    <button *ngIf="searchString.length>0" style="margin-top: 2px;"(click)=clearFilters()>clear</button>
+    <button style="float: right;margin-right: 5%;" (click)="addBook()">Add Book</button>
 </div>
+
 <div class="table">
     <table>
         <thead class="tableHead">

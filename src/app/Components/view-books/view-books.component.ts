@@ -39,6 +39,10 @@ export class ViewBooksComponent implements OnInit {
     }
     
   }
+
+  addBook(){
+    this.router.navigate(["/main/Admin/addBook"]);
+  }
   
   search(filters:string)
   {
