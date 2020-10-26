@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,private loginS:LoginService) { }
 login(username,password)
 {
-  console.log(username,password)
   this.loginS.authenticateUser(username,password).subscribe((data:any)=>{
     if(data.aurthorize){
       this.loginS.setRoute(data);
@@ -22,15 +21,6 @@ login(username,password)
       alert("Enter valid credentials");
     }
   })
-  // if ( this.loginS.authenticateUser(username,password))
-  // {
-  //   this.router.navigate(["/Admin/home"]);
-  // } 
-  // else 
-  // {
-  //   alert("Enter valid credentials");
-  // }
- 
 
 }
   ngOnInit() {
