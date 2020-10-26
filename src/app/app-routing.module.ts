@@ -28,7 +28,9 @@ const routes: Routes = [
           {path:"ViewBooks",component:ViewBooksComponent,canActivate:[LoginService]},
           {path:"home",component:HomeComponent,canActivate:[LoginService]},
           {path:"addBook",component:AddBookComponent,canActivate:[LoginService]},
-          {path:"editView/:id",component:EditViewComponent,canActivate:[LoginService]}
+          {path:"editView/:id",component:EditViewComponent,canActivate:[LoginService]},
+          {path:"addUser",component:AddUserComponent},
+          {path:"updateUser/:id",component:AddUserComponent}
     ]},
 ]},
 
