@@ -2,12 +2,12 @@
     <form name="form" [formGroup]="AddForm" (ngSubmit)=" formSubmit()">
         <div class="card" >
             <div class="card-header">
-                <h3 >Add/Update User</h3>
+                <h3 >{{nameOfPage}}</h3>
             </div>
             
             <!-- <div class="col-md-6"> -->
 
-                <div class="form-group">
+                <div class="form-group alignname">
                     <label  >User Name</label><br>
                     <input type="text" class="form-control" formControlName="username" [(ngModel)]="this.userDetails.username">
                     <div *ngIf=" (validationControl.username.dirty || validationControl.username.touched || submitted) && validationControl.username.errors ">
@@ -17,7 +17,7 @@
                     </div>
                 </div>
         
-                <div class="form-group">
+                <div class="form-group alignname">
                     <label  >Password</label><br>
                     <input type="password" class="form-control" formControlName="password" [(ngModel)]="this.userDetails.password">
                     <div *ngIf=" (validationControl.password.dirty || validationControl.password.touched || submitted) && validationControl.password.errors ">
@@ -30,9 +30,9 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group alignname">
                     <label  >Contact Number</label><br>
-                    <input type="text" class="form-control" formControlName="phoneno" [(ngModel)]="this.userDetails.phoneno">
+                    <input type="text" class="form-control" formControlName="phoneno" [(ngModel)]="this.userDetails.phoneNo">
                     <div *ngIf=" (validationControl.phoneno.dirty || validationControl.phoneno.touched || submitted) && validationControl.phoneno.errors ">
                         <div *ngIf="validationControl.phoneno.errors.required" style="color:red">
                             <p>Enter the contact number</p>
@@ -43,9 +43,9 @@
                     </div>
                 </div>
         
-                <div class="form-group">
+                <div class="form-group alignname">
                     <label  >Gmail Id</label><br>
-                    <input type="text" class="form-control" formControlName="mailid" [(ngModel)]="this.userDetails.mailid">
+                    <input type="text" class="form-control" formControlName="mailid" [(ngModel)]="this.userDetails.mailId">
                     <div *ngIf=" (validationControl.mailid.dirty || validationControl.mailid.touched || submitted) && validationControl.mailid.errors ">
                         <div *ngIf="validationControl.mailid.errors.required" style="color:red">
                             <p>Enter the Gmail Id</p>
@@ -57,23 +57,23 @@
                 </div>
         
         
-                <!-- <div class="form-group">
+                <div class="form-group alignname">
                     <label >Role</label><br>
-                    <select class="form-control" formControlName="role"  [(ngModel)]="this.userDetails.role">  
-                        <option default selected [value]="userDetails.role" >{{userDetails.role}}</option>                             
-                        <option *ngIf="userDetails.role !== 0" value="0" >AdminUser</option>
-                        <option *ngIf="userDetails.role !== 1" value="1">Admin</option>
-                        <option *ngIf="userDetails.role !== 2" value="2">User</option>
+                    <select class="form-control" (click)="changeRoleToName()" formControlName="role"  [(ngModel)]="this.userDetails.role">  
+                        <option default selected [value]="userDetails.role" >{{rolename}}</option>                             
+                        <option *ngIf="userDetails.role !== '0' " value="0" >AdminUser</option>
+                        <option *ngIf="userDetails.role !== '1'" value="1">Admin</option>
+                        <option *ngIf="userDetails.role !== '2'" value="2">User</option>
                       </select>
                       <div *ngIf=" (validationControl.role.dirty || validationControl.role.touched || submitted ) && validationControl.role.errors">
                         <div *ngIf="validationControl.role.errors.required" style="color:red">
                             <p>select role</p>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <br/>
                 <div class="form-group">       
-                    <button class="btnUpdate"  type="submit">Add/Update</button>&nbsp;
+                    <button class="btnUpdate"  type="submit">{{nameOfButton}}</button>&nbsp;
                 </div>
             <!-- </div> -->
             <!-- <div class="col-md-6">
