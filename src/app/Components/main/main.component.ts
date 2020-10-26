@@ -23,7 +23,6 @@ getRole(){
   }
   else if(this.login.login.role==1)
   {
-    debugger;
     this.isAdmin=true;
   }
   else
@@ -31,7 +30,6 @@ getRole(){
     this.isUser=true
   };
 this.username=this.login.login.username;
-console.log(this.isAdminUser,this.isAdmin,this.isUser);
 }
   logout(){
   this.login.setRoute(false);

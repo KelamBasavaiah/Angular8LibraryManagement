@@ -10,16 +10,18 @@ import { Login } from '../Entities/login';
 export class LoginService {
 result:boolean;
 login:Login;
-  constructor(private http:HttpClient) { }
+public prefix:string="https://localhost:44328/User";
+  constructor(private http:HttpClient) { this.login= new Login();}
 
   authenticateUser(username,password)
   {
-     return this.http.get("https://localhost:44328/api/User/"+username+"/"+password)
+    this.login.username=username;
+    this.login.password=password;
+     return this.http.post(this.prefix+"/login",this.login)
    
   }
   setRoute(value){
     this.login=value;
-    console.log(this.login);
     this.result=value.aurthorize;
   }
   canActivate() {
@@ -27,11 +29,10 @@ login:Login;
     return this.result;
   }
   getBooksforUser(userId){
-    return this.http.get("https://localhost:44328/api/User?userId="+userId)
+    return this.http.get(this.prefix+"/GetBooks?userId="+userId)
   }
   returnBook(userId){
-    console.log(userId);
-    return this.http.delete("https://localhost:44328/api/User/"+userId)
+    return this.http.post(this.prefix+"/returnBook?id="+userId,"")
   }
 
 }
