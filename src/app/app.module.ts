@@ -20,6 +20,8 @@ import { UserViewBooksComponent } from './Components/user-view-books/user-view-b
 import { MainComponent } from './Components/main/main.component';
 import { UserHomeComponent } from './Components/user-home/user-home.component';
 import { UserMgmtComponent } from './Components/user-mgmt/user-mgmt.component';
+import { AddUserComponent } from './Components/add-user/add-user.component';
+
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { UserMgmtComponent } from './Components/user-mgmt/user-mgmt.component';
     UserViewBooksComponent,
     MainComponent,
     UserHomeComponent,
-    UserMgmtComponent
+    UserMgmtComponent,
+    AddUserComponent
+
   ],
   imports: [
     BrowserModule,
