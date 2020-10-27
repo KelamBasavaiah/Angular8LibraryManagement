@@ -16,8 +16,8 @@ export class User extends Login{
         this.dueDate=dueDate;
         this.id = id;
         this.bookName = bookName;
-        this.phoneNo = phoneno;
-        this.mailId = mailid;
+        this.phoneNo = phoneNo;
+        this.mailId = mailId;
         this.isActive = isActive;
     }
 }
