@@ -11,6 +11,7 @@ export class UserMgmtService {
   
   getAllUserDetails(){
     return this.http.get("https://localhost:44328/api/UserMgmt");
+  }
 
   addUser(userdetails:User){
     return this.http.post("https://localhost:44328/api/UserMgmt",userdetails);
