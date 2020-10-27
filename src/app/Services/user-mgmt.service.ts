@@ -20,4 +20,8 @@ export class UserMgmtService {
   getUser(id){
     return this.http.get("https://localhost:44328/api/UserMgmt/"+id);
   }
+  deleteUser(id){
+    return this.http.delete("https://localhost:44328/api/UserMgmt?userId="+id);
+  }
+
 }
