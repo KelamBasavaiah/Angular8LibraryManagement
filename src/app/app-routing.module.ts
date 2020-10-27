@@ -38,10 +38,6 @@ const routes: Routes = [
 
  
 {path:"login",component:LoginComponent},
-{path:"mybooks",component:MyBooksComponent},
-{path:"addUser",component:AddUserComponent},
-{path:"userViewBooks",component:UserViewBooksComponent},
-{path:"usermgmt",component:UserMgmtComponent},
 {path:'', redirectTo:'/login',pathMatch:'full'},
 {path:'**', component:LoginComponent}
 ];
