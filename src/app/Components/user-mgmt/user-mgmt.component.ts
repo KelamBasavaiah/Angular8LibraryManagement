@@ -71,7 +71,21 @@ export class UserMgmtComponent implements OnInit {
 
   }
 
-  
+  editUser(id){
+    this.router.navigate(["/main/Admin/updateUser", id]);
+  }
+  deleteUser(id,username){
+    if(confirm('Are sure delete this user "'+ username+'"?'))
+    {
+      debugger
+       this.userService.deleteUser(id).subscribe((data:any)=>{
+        if(data){this.toastr.success('User is InActive!', 'Success!');}
+        else{this.toastr.warning('Something went wrong!', 'Failed!');}
+         this.getAllUsers();
+        });
+       
+    }
+  }  
   clearFilters(){
     this.searchString='';
     this.getAllUsers();
