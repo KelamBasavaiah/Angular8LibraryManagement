@@ -44,7 +44,7 @@
                 </div>
         
                 <div class="form-group alignname">
-                    <label  >Gmail Id</label><br>
+                    <label  >Mail Id</label><br>
                     <input type="text" class="form-control" formControlName="mailid" [(ngModel)]="this.userDetails.mailId">
                     <div *ngIf=" (validationControl.mailid.dirty || validationControl.mailid.touched || submitted) && validationControl.mailid.errors ">
                         <div *ngIf="validationControl.mailid.errors.required" style="color:red">
