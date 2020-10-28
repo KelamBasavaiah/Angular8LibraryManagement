@@ -74,8 +74,8 @@ export class UserMgmtComponent implements OnInit {
   editUser(id){
     this.router.navigate(["/main/Admin/updateUser", id]);
   }
-  deleteUser(id){
-    if(confirm('Are sure delete this user '+ id+" ?"))
+  deleteUser(id,username){
+    if(confirm('Are sure delete this user "'+ username+'"?'))
     {
       debugger
        this.userService.deleteUser(id).subscribe((data:any)=>{
