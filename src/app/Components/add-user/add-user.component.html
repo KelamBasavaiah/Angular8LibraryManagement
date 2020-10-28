@@ -61,9 +61,9 @@
                     <label >Role</label><br>
                     <select class="form-control" (click)="changeRoleToName()" formControlName="role"  [(ngModel)]="this.userDetails.role">  
                         <option default selected [value]="userDetails.role" >{{rolename}}</option>                             
-                        <option *ngIf="userDetails.role !== '0' " value="0" >AdminUser</option>
-                        <option *ngIf="userDetails.role !== '1'" value="1">Admin</option>
-                        <option *ngIf="userDetails.role !== '2'" value="2">User</option>
+                        <option *ngIf="userDetails.role !==0 " value="0" >AdminUser</option>
+                        <option *ngIf="userDetails.role !== 1" value="1">Admin</option>
+                        <option *ngIf="userDetails.role !== 2" value="2">User</option>
                       </select>
                       <div *ngIf=" (validationControl.role.dirty || validationControl.role.touched || submitted ) && validationControl.role.errors">
                         <div *ngIf="validationControl.role.errors.required" style="color:red">
