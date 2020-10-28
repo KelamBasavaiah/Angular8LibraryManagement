@@ -2,7 +2,8 @@
 <div class="search">
     <input [(ngModel)]="searchString">&nbsp;
     <button [disabled]="searchString.length<2" (click)=search(searchString) [style.background-color]="(searchString.length>1)? 'mediumspringgreen':''" class="btn btn-success">Search</button>
-    <br><button *ngIf="searchString.length>0" class="btn btn-default" style="float: right;margin-top: 2px;"(click)=clearFilters()>clear</button>
+    <button *ngIf="searchString.length>0" class="btn btn-default" style="float: right;margin-top: 2px;"(click)=clearFilters()>clear</button>
+    <button style="float: right;margin-right: 5%;" (click)="addUser()" class="btn btn-success">Add User</button>
 </div>
 <div class="table">
     <table>
