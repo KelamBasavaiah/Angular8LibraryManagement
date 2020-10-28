@@ -86,6 +86,9 @@ export class UserMgmtComponent implements OnInit {
        
     }
   }  
+  addUser(){
+    this.router.navigate(["/main/Admin/addUser"]);
+  }
   clearFilters(){
     this.searchString='';
     this.getAllUsers();

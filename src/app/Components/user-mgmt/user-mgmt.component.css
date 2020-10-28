@@ -1,11 +1,11 @@
 .search{
-    float: right;
-    margin: 5px 40px 0px 0px;
+    /* float: right; */
+    margin: 5px 5px 0px 40px;
   }
   
     .table{
       width: 100%;
-      margin-top: 80px  ;
+      margin-top: 30px  ;
       
     }
     table, td, th {

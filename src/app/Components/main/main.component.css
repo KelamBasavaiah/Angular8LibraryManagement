@@ -8,8 +8,8 @@
 }
 .user{
     float:right;
-    margin: 0px 0px 0px 30px;
-    width: 80px;
+    margin: 15px 0px 0px 30px;
+    width: auto;
     height: 30px;
     line-height: 100%;
     font-weight: bold;
