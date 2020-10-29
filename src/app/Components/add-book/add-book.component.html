@@ -72,7 +72,7 @@
                         <option value="novel">Novel</option>
                         <option value="comics">Comics</option>
                     </select>
-                    <div *ngIf="!genres?.valid && (geners?.dirty || geners?.touched)" class="invalid-feedback">                
+                    <div *ngIf="!genres?.valid && (genres?.dirty || genres?.touched)" class="invalid-feedback">                
                         <div *ngIf="genres.errors.required">Genres is required</div>
                     </div>
                 </div>
