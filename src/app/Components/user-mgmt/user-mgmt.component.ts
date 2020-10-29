@@ -62,7 +62,7 @@ export class UserMgmtComponent implements OnInit {
   role(roleId){
     switch(roleId){
       case 0:
-        return "Admin User";
+        return "Admin "+","+"User";
       case 1:
         return "Admin";
       case 2:
