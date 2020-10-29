@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/Entities/user';
 import { UserMgmtService } from 'src/app/Services/user-mgmt.service';
@@ -12,7 +12,7 @@ import { UserMgmtService } from 'src/app/Services/user-mgmt.service';
 })
 export class AddUserComponent implements OnInit {
 
-  constructor(private fb:FormBuilder,private toastr:ToastrService,private userMgmtService:UserMgmtService,private myActiveRoute:ActivatedRoute) {
+  constructor(private fb:FormBuilder,private router:Router,private toastr:ToastrService,private userMgmtService:UserMgmtService,private myActiveRoute:ActivatedRoute) {
     this.changeRoleToName();
    }
 
@@ -50,8 +50,11 @@ get validationControl() {
      if(data){
       if(this.nameOfButton != 'Update'){
         this.toastr.success('User Added!', 'Success!');
+        this.router.navigateByUrl("/main/Admin/usermgmt");
+
       }else{
         this.toastr.success('User Updated!', 'Success!');
+        this.router.navigateByUrl("/main/Admin/usermgmt");
       }       
      }else{
        this.toastr.warning('something went wrong!', 'Failed!');
