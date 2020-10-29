@@ -10,18 +10,18 @@ export class UserMgmtService {
   constructor(private http:HttpClient) { }
   
   getAllUserDetails(){
-    return this.http.get("https://localhost:44328/api/UserMgmt");
+    return this.http.get("https://localhost:44328/UserMgmt/GetAllUsers");
   }
 
   addUser(userdetails:User){
-    return this.http.post("https://localhost:44328/api/UserMgmt",userdetails);
+    return this.http.post("https://localhost:44328/UserMgmt/AddUser",userdetails);
   }
     
   getUser(id){
-    return this.http.get("https://localhost:44328/api/UserMgmt/"+id);
+    return this.http.get("https://localhost:44328/UserMgmt/GetUser?id="+id);
   }
   deleteUser(id){
-    return this.http.delete("https://localhost:44328/api/UserMgmt?userId="+id);
+    return this.http.delete("https://localhost:44328/UserMgmt/DeleteUser?userId="+id);
   }
 
 }
