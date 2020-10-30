@@ -13,7 +13,6 @@ import { UserMgmtService } from 'src/app/Services/user-mgmt.service';
 export class AddUserComponent implements OnInit {
 
   constructor(private fb:FormBuilder,private router:Router,private toastr:ToastrService,private userMgmtService:UserMgmtService,private myActiveRoute:ActivatedRoute) {
-    this.changeRoleToName();
    }
 
   userDetails = new User();
@@ -21,14 +20,17 @@ export class AddUserComponent implements OnInit {
   rolename:any;
   nameOfPage:any = 'Add User';
   nameOfButton:any = 'Add';
+  selectedRole:any=[];
+  role=[{"id":"1","name":"Admin"},
+        {"id":"2","name":"User"}];
 
   submitted=false;
   AddForm = this.fb.group({
   username:['',[Validators.required]],
   password:['',[Validators.required,Validators.minLength(8)]],
   phoneno:['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
-  mailid:['',[Validators.required,Validators.pattern('^.+@gmail.com$')]],
-  role:['',[Validators.required]]
+  mailid:['',[Validators.required,Validators.pattern('^.+@gmail.com$')]]
+  //role:['',[Validators.required]]
 })
 get validationControl() {
   return this.AddForm.controls; 
@@ -37,15 +39,11 @@ get validationControl() {
  formSubmit()
  {
    this.submitted=true;
-   debugger;
    if (this.AddForm.invalid) {
      this.toastr.warning('Something went wrong...','Check & Update!!!')
      return;
    }
-   console.log(this.AddForm.value);
-   console.log(this.userDetails);
-   debugger;
-   
+   this.userDetails.role=this.selectedRole.toString();
    this.userMgmtService.addUser(this.userDetails).subscribe((data:any)=>{
      if(data){
       if(this.nameOfButton != 'Update'){
@@ -63,35 +61,26 @@ get validationControl() {
  }
 
  getUser(){
-  console.log(this.userId);
   this.userMgmtService.getUser(this.userId).subscribe((data:User)=>
   {
-    this.userDetails=data
-    console.log(data);
-    this.changeRoleToName();
+    this.userDetails=data;
+    this.selectedRole=this.userDetails.role.split(",");
     this.changePageName();
   }); 
  }
 
- changeRoleToName(){
-   console.log(this.userDetails.role);
-  if(this.userDetails.role == 0){
-    this.rolename = 'AdminUser';
-  }else if(this.userDetails.role == 1){
-    this.rolename = 'Admin'
-  }else if(this.userDetails.role == 2){
-    this.rolename = 'User';
-  } else{
-    this.rolename = 'Select';
-  }
- }
-
- changePageName(){
+changePageName(){
    this.nameOfPage = 'Update User';
    this.nameOfButton = 'Update';
  }
 
-
+roleChange(event){
+  let index=this.selectedRole.indexOf(event.target.value);
+  if(index==-1)
+    this.selectedRole.push(event.target.value);
+  else
+    this.selectedRole.splice(index,1);
+}
 
   ngOnInit():void {
     this.myActiveRoute.params.subscribe(res=>
@@ -105,3 +94,6 @@ get validationControl() {
   }
 
 }
+
+
+ 

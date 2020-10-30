@@ -2,7 +2,7 @@ export class Login {
     userId:number;
     username:string;
     password:string;
-    role:number;
+    role:any;
     aurthorize:boolean
     constructor(userId?,username?,password?,role?,aurthorize?){
         this.userId=userId;

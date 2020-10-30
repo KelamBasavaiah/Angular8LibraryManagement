@@ -58,7 +58,7 @@
         
         
                 <div class="form-group alignname">
-                    <label >Role</label><br>
+                    <!-- <label >Role</label><br>
                     <select class="form-control" (click)="changeRoleToName()" formControlName="role"  [(ngModel)]="this.userDetails.role">  
                         <option default selected [value]="userDetails.role" >{{rolename}}</option>                             
                         <option *ngIf="userDetails.role !==0 " value="0" >AdminUser</option>
@@ -69,7 +69,11 @@
                         <div *ngIf="validationControl.role.errors.required" style="color:red">
                             <p>select role</p>
                         </div>
+                    </div> -->
+                    <div *ngFor="let r of role">
+                        <input type="checkbox" value="{{r.id}}" (change)="roleChange($event)" [checked]="selectedRole.indexOf(r.id)!=-1">{{r.name}}
                     </div>
+
                 </div>
                 <br/>
                 <div class="form-group">       
