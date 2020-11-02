@@ -30,13 +30,13 @@ const routes: Routes = [
           {path:"home",component:HomeComponent,canActivate:[LoginService]},
           {path:"addBook",component:AddBookComponent,canActivate:[LoginService]},
           {path:"editView/:id",component:EditViewComponent,canActivate:[LoginService]},
-          {path:"usermgmt",component:UserMgmtComponent},
-          {path:"addUser",component:AddUserComponent},
-          {path:"updateUser/:id",component:AddUserComponent}
+          {path:"usermgmt",component:UserMgmtComponent,canActivate:[LoginService]},
+          {path:"addUser",component:AddUserComponent,canActivate:[LoginService]},
+          {path:"updateUser/:id",component:AddUserComponent,canActivate:[LoginService]}
     ]},
 ]},
 
- 
+{path:"Register",component:AddUserComponent},
 {path:"login",component:LoginComponent},
 {path:'', redirectTo:'/login',pathMatch:'full'},
 {path:'**', component:LoginComponent}
