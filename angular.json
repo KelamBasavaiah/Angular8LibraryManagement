@@ -121,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "libraryManagement"
+    }
+  },
+  "defaultProject": "libraryManagement",
+  "cli": {
+    "analytics": false
+  }
 }

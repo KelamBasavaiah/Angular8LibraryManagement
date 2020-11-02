@@ -61,11 +61,11 @@ export class UserMgmtComponent implements OnInit {
 
   role(roleId){
     switch(roleId){
-      case 0:
-        return "Admin User";
-      case 1:
+      case "1,2":
+        return "Admin "+","+"User";
+      case "1":
         return "Admin";
-      case 2:
+      case "2":
         return "User";
     }
 

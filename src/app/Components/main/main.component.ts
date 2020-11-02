@@ -16,20 +16,20 @@ export class MainComponent implements OnInit {
   constructor(private login:LoginService,private route:Router) { }
 
 getRole(){
-  if(this.login.login.role==0)
+  if(this.login.login.role=="1,2")
   {
     this.isAdminUser=true;
     this.isUser=true;
   }
-  else if(this.login.login.role==1)
+  else if(this.login.login.role=="1")
   {
     this.isAdmin=true;
   }
   else
   {
-    this.isUser=true
+    this.isUser=true;
   };
-this.username=this.login.login.username;
+  this.username=this.login.login.username;
 }
   logout(){
   this.login.setRoute(false);
