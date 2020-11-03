@@ -22,7 +22,6 @@ import { UserHomeComponent } from './Components/user-home/user-home.component';
 import { UserMgmtComponent } from './Components/user-mgmt/user-mgmt.component';
 import { AddUserComponent } from './Components/add-user/add-user.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -48,7 +47,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule,ReactiveFormsModule,ToastrModule.forRoot(),
-    CommonModule,BrowserAnimationsModule,HttpClientModule,FontAwesomeModule
+    CommonModule,BrowserAnimationsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
