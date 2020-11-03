@@ -20,6 +20,7 @@ import { UserViewBooksComponent } from './Components/user-view-books/user-view-b
 import { MainComponent } from './Components/main/main.component';
 import { UserHomeComponent } from './Components/user-home/user-home.component';
 import { AddUserComponent } from './Components/add-user/add-user.component';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 
 
 
@@ -37,13 +38,14 @@ import { AddUserComponent } from './Components/add-user/add-user.component';
     UserViewBooksComponent,
     MainComponent,
     UserHomeComponent,
-    AddUserComponent
+    AddUserComponent,
+    ChangePasswordComponent
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule,ToastrModule.forRoot(),CommonModule,BrowserAnimationsModule,HttpClientModule
-    
+    AppRoutingModule,FormsModule,ReactiveFormsModule,ToastrModule.forRoot(),
+    CommonModule,BrowserAnimationsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

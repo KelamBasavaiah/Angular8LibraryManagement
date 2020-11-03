@@ -82,7 +82,12 @@ changePageName(){
    this.nameOfPage = 'Update User';
    this.nameOfButton = 'Update';
  }
-
+ someChecked(){
+   if(this.selectedRole.length>0)
+    return true;
+  else
+    return false;
+ }
 roleChange(event){
   let index=this.selectedRole.indexOf(event.target.value);
   if(index==-1)

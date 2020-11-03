@@ -59,19 +59,11 @@
                 <div *ngIf="displayRoleSelection">
                     <div class="form-group alignname">
                         <label >Role</label><br>
-                        <!-- <select class="form-control" (click)="changeRoleToName()" formControlName="role"  [(ngModel)]="this.userDetails.role">  
-                            <option default selected [value]="userDetails.role" >{{rolename}}</option>                             
-                            <option *ngIf="userDetails.role !==0 " value="0" >AdminUser</option>
-                            <option *ngIf="userDetails.role !== 1" value="1">Admin</option>
-                            <option *ngIf="userDetails.role !== 2" value="2">User</option>
-                          </select>
-                          <div *ngIf=" (validationControl.role.dirty || validationControl.role.touched || submitted ) && validationControl.role.errors">
-                            <div *ngIf="validationControl.role.errors.required" style="color:red">
-                                <p>select role</p>
-                            </div>
-                        </div> -->
                         <div *ngFor="let r of role">
                             <input type="checkbox" value="{{r.id}}" (change)="roleChange($event)" [checked]="selectedRole.indexOf(r.id)!=-1">{{r.name}}
+                        </div>
+                        <div *ngIf="!someChecked()" style="color:red">
+                            <p>select any one role</p>
                         </div>
     
                     </div>

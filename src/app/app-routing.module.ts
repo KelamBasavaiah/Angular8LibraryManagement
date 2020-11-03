@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules, NoPreloading } from '@angular/router';
 import { AddUserComponent } from './Components/add-user/add-user.component';
 import { AdminComponent } from './Components/admin/admin.component';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { MainComponent } from './Components/main/main.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
 
 {path:"Register",component:AddUserComponent},
 {path:"login",component:LoginComponent},
+{path:"confirmPassword",component:ChangePasswordComponent},
 {path:'', redirectTo:'/login',pathMatch:'full'},
 {path:'**', component:LoginComponent}
 ];
