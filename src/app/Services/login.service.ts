@@ -34,6 +34,9 @@ public prefix:string="https://localhost:44328/User";
   returnBook(userId){
     return this.http.post(this.prefix+"/returnBook?id="+userId,"")
   }
+  changePassword(Id,oldPassword,newPassword){
+    return this.http.post(this.prefix+"/changePassword?userId="+Id+"&oldPassword="+oldPassword+"&newPassword="+newPassword,"")
+  }
 
 }
 

@@ -21,6 +21,8 @@ import { MainComponent } from './Components/main/main.component';
 import { UserHomeComponent } from './Components/user-home/user-home.component';
 import { UserMgmtComponent } from './Components/user-mgmt/user-mgmt.component';
 import { AddUserComponent } from './Components/add-user/add-user.component';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -39,12 +41,14 @@ import { AddUserComponent } from './Components/add-user/add-user.component';
     MainComponent,
     UserHomeComponent,
     UserMgmtComponent,
-    AddUserComponent
+    AddUserComponent,
+    ChangePasswordComponent
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule,ToastrModule.forRoot(),CommonModule,BrowserAnimationsModule,HttpClientModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule,ToastrModule.forRoot(),
+    CommonModule,BrowserAnimationsModule,HttpClientModule,FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
