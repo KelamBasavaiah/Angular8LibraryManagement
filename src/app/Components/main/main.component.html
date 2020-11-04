@@ -1,25 +1,16 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="navBar" >
-    <!-- <nav >
-        <a >Library</a>&nbsp;
-        <a routerLink="/main/home" routerLinkActive="active">Home</a>&nbsp;
-        <a routerLink="/main/user/userViewBooks" routerLinkActive="active">Books</a>&nbsp;
-        <a *ngIf="isAdmin" routerLink="/main/Admin/ViewBooks" routerLinkActive="active">Admin</a>  
-        <a (click)='logout()' style="float: right;">LogOut</a> 
-        <p class="user">welcome {{username}}</p>
-        <a  style="float: right;">Contact</a>        
-                 
-    </nav> -->
     <ul>
-        <li><a>Library</a></li>
-        <li><a routerLink="/main/home" routerLinkActive="active">Home</a></li>
-        <li><a *ngIf="isUser || isAdminUser" routerLink="/main/user/userViewBooks" routerLinkActive="active">Books</a></li>
-        <li><a *ngIf="isAdmin || isAdminUser" routerLink="/main/Admin/ViewBooks" routerLinkActive="active">Admin</a></li>
-        <li><a>Contact</a></li>
-        <li style="float: right;"><a (click)='logout()' >Logout</a></li>
+        <li><a class="fa fa-th-large">&nbsp;Library</a></li>
+        <li><a routerLink="/main/home" routerLinkActive="active" class="fa fa-home">&nbsp;Home</a></li>
+        <li><a *ngIf="isUser || isAdminUser" routerLink="/main/user/userViewBooks" routerLinkActive="active" class="fa fa-book">&nbsp;Books</a></li>
+        <li><a *ngIf="isAdmin || isAdminUser" routerLink="/main/Admin/ViewBooks" routerLinkActive="active" class="fa fa-user">&nbsp;Admin</a></li>
+        <li><a class="fa fa-envelope" routerLinkActive="active">&nbsp;Contact</a></li>
+        <li><a routerLink="/main/confirmPassword" class="fa fa-key" routerLinkActive="active">&nbsp;Change Password</a></li>
+        <li style="float: right;"><a (click)='logout()' class="fa fa-sign-out" >&nbsp;Logout</a></li>
         <li class="user">Welcome {{username}}</li>
         
-      </ul>
-    
+      </ul>  
 </div>
 
 
