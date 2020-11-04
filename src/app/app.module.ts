@@ -24,7 +24,6 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
