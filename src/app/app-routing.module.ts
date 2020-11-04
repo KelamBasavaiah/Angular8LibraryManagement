@@ -17,6 +17,7 @@ const routes: Routes = [
   {path:"main",component:MainComponent,canActivate:[LoginService],
   children:[
   {path:"home",component:HomeComponent,canActivate:[LoginService]},
+  {path:"confirmPassword",component:ChangePasswordComponent,canActivate:[LoginService]},
   {path:"user",component:UserHomeComponent,canActivate:[LoginService],
        children:[
         {path:"mybooks",component:MyBooksComponent,canActivate:[LoginService]},
@@ -35,7 +36,6 @@ const routes: Routes = [
 
 {path:"Register",component:AddUserComponent},
 {path:"login",component:LoginComponent},
-{path:"confirmPassword",component:ChangePasswordComponent},
 {path:'', redirectTo:'/login',pathMatch:'full'},
 {path:'**', component:LoginComponent}
 ];
