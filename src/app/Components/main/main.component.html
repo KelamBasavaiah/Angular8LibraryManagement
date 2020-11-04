@@ -15,7 +15,7 @@
         <li><a *ngIf="isUser || isAdminUser" routerLink="/main/user/userViewBooks" routerLinkActive="active">Books</a></li>
         <li><a *ngIf="isAdmin || isAdminUser" routerLink="/main/Admin/ViewBooks" routerLinkActive="active">Admin</a></li>
         <li><a>Contact</a></li>
-        <li style="float: right;"><a (click)='logout()' >Logout</a></li>
+        <li style="float: right;cursor: pointer;"><a (click)='logout()' >Logout</a></li>
         <li class="user">Welcome {{username}}</li>
         
       </ul>
