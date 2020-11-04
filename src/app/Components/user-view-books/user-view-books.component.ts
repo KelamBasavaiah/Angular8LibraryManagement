@@ -17,9 +17,11 @@ export class UserViewBooksComponent implements OnInit {
   book:BookDetails;
   user:User;
   le:number;
+  lendBook:Boolean=true;
+
   asending:boolean=false;decending:boolean=true;
   public searchString:string="";
-  
+  selectedBook:any=[];
   constructor(private bookServices:BookService,private router: Router,private toastr:ToastrService,private loginservice:LoginService) { 
     this.user=new User();
   }
@@ -56,18 +58,51 @@ export class UserViewBooksComponent implements OnInit {
     }
         
   }
-  lendingBook(bookId){
+  BookChange(event){
+    let index=this.selectedBook.indexOf(event.target.value);
+    if(index==-1)
+      this.selectedBook.push(event.target.value);
+    else
+      this.selectedBook.splice(index,1);
+  }
+  someChecked(){
+    if(this.selectedBook.length>0)
+      return true;
+   else
+    return false;
+  }
+  disableCheckbox(k){
+    if(k<1)
+      return true;
+      else
+      return false;
+  }
+  disablebtn(){
+    if(this.selectedBook.length<1)
+    return true;
+    else
+    return false;
+  }
+  lendingBook(){
     debugger
-    this.user.userId=this.loginservice.login.userId;
-    this.bookServices.lendingBook(bookId,this.user).subscribe((result)=>{
-      if(result===true){
-        this.toastr.success('Book is Lended!', 'Success!');
-        this.router.navigateByUrl("/main/user/mybooks");
-      }
-      else{
-        this.toastr.warning('Something went wrong!', 'Failed!');
-      }
-    })
+    this.selectedBook.forEach(bookId => {
+      this.user.userId=this.loginservice.login.userId;
+      this.bookServices.lendingBook(bookId,this.user).subscribe((result)=>{
+        if(result===true){
+          this.lendBook=true;
+        }
+        else{
+          this.lendBook=false;
+        }
+      }) 
+    });
+    if(this.lendBook===true){
+      this.toastr.success('Book is Lended!', 'Success!');
+      this.router.navigateByUrl("/main/user/mybooks");
+    }
+    else{
+      this.toastr.warning('Something went wrong!', 'Failed!');
+    }
   }
 
  clearFilters(){

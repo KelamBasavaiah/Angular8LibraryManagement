@@ -23,6 +23,9 @@ login(username,password)
   })
 
 }
+Register(){
+  this.router.navigate(["/Register"]);
+}
   ngOnInit() {
   }
 

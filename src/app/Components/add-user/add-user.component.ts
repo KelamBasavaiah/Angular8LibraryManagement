@@ -1,8 +1,10 @@
+import { registerLocaleData } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/Entities/user';
+import { LoginService } from 'src/app/Services/login.service';
 import { UserMgmtService } from 'src/app/Services/user-mgmt.service';
 
 @Component({
@@ -12,7 +14,8 @@ import { UserMgmtService } from 'src/app/Services/user-mgmt.service';
 })
 export class AddUserComponent implements OnInit {
 
-  constructor(private fb:FormBuilder,private router:Router,private toastr:ToastrService,private userMgmtService:UserMgmtService,private myActiveRoute:ActivatedRoute) {
+  constructor(private fb:FormBuilder,private router:Router,private toastr:ToastrService,
+    private userMgmtService:UserMgmtService,private myActiveRoute:ActivatedRoute,private login:LoginService) {
    }
 
   userDetails = new User();
@@ -23,6 +26,7 @@ export class AddUserComponent implements OnInit {
   selectedRole:any=[];
   role=[{"id":"1","name":"Admin"},
         {"id":"2","name":"User"}];
+  displayRoleSelection:boolean =true;
 
   submitted=false;
   AddForm = this.fb.group({
@@ -44,10 +48,12 @@ get validationControl() {
      return;
    }
    this.userDetails.role=this.selectedRole.toString();
+   if(this.userDetails.role==""){this.userDetails.role="2"}
+   debugger;
    this.userMgmtService.addUser(this.userDetails).subscribe((data:any)=>{
      if(data){
       if(this.nameOfButton != 'Update'){
-        this.toastr.success('User Added!', 'Success!');
+        this.toastr.success('User Added!', 'Success!');        
         this.router.navigateByUrl("/main/Admin/usermgmt");
 
       }else{
@@ -58,6 +64,9 @@ get validationControl() {
        this.toastr.warning('something went wrong!', 'Failed!');
      }
    })
+   if(this.nameOfButton === 'Register'){
+    this.router.navigateByUrl("/login");
+  }
  }
 
  getUser(){
@@ -73,7 +82,12 @@ changePageName(){
    this.nameOfPage = 'Update User';
    this.nameOfButton = 'Update';
  }
-
+ someChecked(){
+   if(this.selectedRole.length>0)
+    return true;
+  else
+    return false;
+ }
 roleChange(event){
   let index=this.selectedRole.indexOf(event.target.value);
   if(index==-1)
@@ -81,7 +95,12 @@ roleChange(event){
   else
     this.selectedRole.splice(index,1);
 }
-
+register(){
+  this.nameOfPage = 'Register User';
+  this.nameOfButton = 'Register';
+  this.displayRoleSelection=false;
+  this.userDetails.role=2;
+}
   ngOnInit():void {
     this.myActiveRoute.params.subscribe(res=>
       {
@@ -90,6 +109,9 @@ roleChange(event){
     });
     if(this.userId != null){
       this.getUser();
+    }
+    else if (this.login.login.role == null && this.userId == null) {
+      this.register();
     }
   }
 
