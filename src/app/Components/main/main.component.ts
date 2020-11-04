@@ -9,7 +9,7 @@ import { LoginService } from 'src/app/Services/login.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  loginEntity:Login={} as Login;
+  loginEntity=new Login();
   isAdmin:boolean=false;
   isAdminUser:boolean=false;
   isUser:boolean=false;
