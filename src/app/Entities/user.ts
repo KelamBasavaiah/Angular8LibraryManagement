@@ -9,6 +9,7 @@ export class User extends Login{
     phoneNo:number;
     mailId:string;
     isActive:BinaryType;
+    checked:boolean;
     constructor(userId?,bookId?,dueDate?,id?,bookName?,phoneNo?,mailId?,isActive?){
         super();
         this.userId=userId;

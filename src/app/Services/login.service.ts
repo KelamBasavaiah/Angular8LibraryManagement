@@ -31,8 +31,8 @@ public prefix:string="https://localhost:44328/User";
   getBooksforUser(userId){
     return this.http.get(this.prefix+"/GetBooks?userId="+userId)
   }
-  returnBook(userId){
-    return this.http.post(this.prefix+"/returnBook?id="+userId,"")
+  returnBook(bookId){
+    return this.http.post(this.prefix+"/returnBook",bookId)
   }
   changePassword(Id,oldPassword,newPassword){
     return this.http.post(this.prefix+"/changePassword?userId="+Id+"&oldPassword="+oldPassword+"&newPassword="+newPassword,"")

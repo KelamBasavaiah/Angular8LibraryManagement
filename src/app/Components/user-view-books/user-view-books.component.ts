@@ -65,12 +65,7 @@ export class UserViewBooksComponent implements OnInit {
     else
       this.selectedBook.splice(index,1);
   }
-  someChecked(){
-    if(this.selectedBook.length>0)
-      return true;
-   else
-    return false;
-  }
+  
   disableCheckbox(k){
     if(k<1)
       return true;
