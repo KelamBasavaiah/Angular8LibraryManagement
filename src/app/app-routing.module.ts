@@ -3,6 +3,7 @@ import { Routes, RouterModule, PreloadAllModules, NoPreloading } from '@angular/
 import { AddUserComponent } from './Components/add-user/add-user.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
+import { ContactComponent } from './Components/contact/contact.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { MainComponent } from './Components/main/main.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   children:[
   {path:"home",component:HomeComponent,canActivate:[LoginService]},
   {path:"confirmPassword",component:ChangePasswordComponent,canActivate:[LoginService]},
+  {path:"contact",component:ContactComponent,canActivate:[LoginService]},
   {path:"user",component:UserHomeComponent,canActivate:[LoginService],
        children:[
         {path:"mybooks",component:MyBooksComponent,canActivate:[LoginService]},
