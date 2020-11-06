@@ -21,6 +21,7 @@ import { MainComponent } from './Components/main/main.component';
 import { UserHomeComponent } from './Components/user-home/user-home.component';
 import { AddUserComponent } from './Components/add-user/add-user.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
+import { ContactComponent } from './Components/contact/contact.component';
 
 
 
@@ -38,7 +39,8 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
     MainComponent,
     UserHomeComponent,
     AddUserComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ContactComponent
 
   ],
   imports: [
