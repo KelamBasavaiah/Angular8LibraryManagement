@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Login } from 'src/app/Entities/login';
 import { LoginService } from 'src/app/Services/login.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { LoginService } from 'src/app/Services/login.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
+  loginEntity=new Login();
   isAdmin:boolean=false;
   isAdminUser:boolean=false;
   isUser:boolean=false;
@@ -32,7 +33,8 @@ getRole(){
   this.username=this.login.login.username;
 }
   logout(){
-  this.login.setRoute(false);
+  this.loginEntity.aurthorize=false;
+  this.login.setRoute(this.loginEntity);
   this.route.navigate(["/login"]);
   }
   ngOnInit() {
