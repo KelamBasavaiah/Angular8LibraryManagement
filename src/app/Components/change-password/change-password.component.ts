@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from 'src/app/Services/login.service';
 import { ConfirmPassword } from './confirm-password.validator';
+import { User } from 'src/app/Entities/user';
+import { UserMgmtService } from 'src/app/Services/user-mgmt.service';
 
 @Component({
   selector: 'app-change-password',
@@ -14,8 +16,9 @@ export class ChangePasswordComponent implements OnInit {
 
   changePasswordForm: FormGroup;
   submitted = false;
+  userDetails = new User();
 
-  constructor(private formBuilder: FormBuilder,private toastr:ToastrService,private loginService:LoginService,private route:Router) {}
+  constructor(private formBuilder: FormBuilder,private toastr:ToastrService,private loginService:LoginService,private route:Router,private userMgmtService:UserMgmtService) {}
 
   ngOnInit() {
     this.changePasswordForm = this.formBuilder.group(
@@ -40,13 +43,15 @@ export class ChangePasswordComponent implements OnInit {
     if (this.changePasswordForm.invalid) {
       return;
     }
-    this.loginService.changePassword(this.loginService.login.userId,this.changePasswordForm.value.oldpassword
-      ,this.changePasswordForm.value.password).subscribe((data:any)=>{
+    this.userDetails.id = this.loginService.login.userId;
+    this.userDetails.password = this.changePasswordForm.value.oldpassword;
+    this.userDetails.newPassword = this.changePasswordForm.value.password;
+    this.userMgmtService.addUser(this.userDetails).subscribe((data:any)=>{
         if(data){
           this.toastr.success('Password Changed Successfully!', 'Success!');
           this.route.navigateByUrl("/main/home");
         }else{
-          this.toastr.warning('Old Password wrong !', 'Check & Update!');
+          this.toastr.warning('Something went wrong!..', 'Check & Update!');
         }  
       });
 

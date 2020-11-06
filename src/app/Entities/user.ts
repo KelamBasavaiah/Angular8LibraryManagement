@@ -10,7 +10,8 @@ export class User extends Login{
     mailId:string;
     isActive:BinaryType;
     checked:boolean;
-    constructor(userId?,bookId?,dueDate?,id?,bookName?,phoneNo?,mailId?,isActive?){
+    newPassword:string;
+    constructor(userId?,bookId?,dueDate?,id?,bookName?,phoneNo?,mailId?,isActive?,newPassword?){
         super();
         this.userId=userId;
         this.bookId=bookId;
@@ -20,5 +21,6 @@ export class User extends Login{
         this.phoneNo = phoneNo;
         this.mailId = mailId;
         this.isActive = isActive;
+        this.newPassword = newPassword;
     }
 }
