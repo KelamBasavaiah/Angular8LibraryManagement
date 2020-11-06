@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from 'src/app/Services/login.service';
 import { ConfirmPassword } from './confirm-password.validator';
@@ -13,9 +14,8 @@ export class ChangePasswordComponent implements OnInit {
 
   changePasswordForm: FormGroup;
   submitted = false;
-  userId:number = 5;
 
-  constructor(private formBuilder: FormBuilder,private toastr:ToastrService,private loginService:LoginService) {}
+  constructor(private formBuilder: FormBuilder,private toastr:ToastrService,private loginService:LoginService,private route:Router) {}
 
   ngOnInit() {
     this.changePasswordForm = this.formBuilder.group(
@@ -40,13 +40,14 @@ export class ChangePasswordComponent implements OnInit {
     if (this.changePasswordForm.invalid) {
       return;
     }
-    this.loginService.changePassword(this.userId,this.changePasswordForm.value.oldpassword
+    this.loginService.changePassword(this.loginService.login.userId,this.changePasswordForm.value.oldpassword
       ,this.changePasswordForm.value.password).subscribe((data:any)=>{
         if(data){
           this.toastr.success('Password Changed Successfully!', 'Success!');
+          this.route.navigateByUrl("/main/home");
         }else{
           this.toastr.warning('Old Password wrong !', 'Check & Update!');
-        }
+        }  
       });
 
   }
