@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { BookDetails } from '../Entities/book-details';
-import { User } from '../Entities/user';
 
 @Injectable({
   providedIn: 'root'
@@ -36,8 +34,8 @@ export class BookService {
     return this.http.post(this.prefix+"addBook",book);
   }
 
-  lendingBook(bookId:string,user:User){
-    return this.http.post("https://localhost:44328/User/lendBook?bookid="+bookId,user);
+  lendingBook(bookId,user){
+    return this.http.post("https://localhost:44328/User/lendBook?userId="+user,bookId);
   }
 
 }

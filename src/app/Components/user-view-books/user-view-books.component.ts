@@ -79,24 +79,18 @@ export class UserViewBooksComponent implements OnInit {
     return false;
   }
   lendingBook(){
-    debugger
-    this.selectedBook.forEach(bookId => {
-      this.user.userId=this.loginservice.login.userId;
-      this.bookServices.lendingBook(bookId,this.user).subscribe((result)=>{
+    this.user.userId=this.loginservice.login.userId;
+    if(confirm('Are you sure to lend selected books?'))
+    {
+      this.bookServices.lendingBook(this.selectedBook,this.user.userId).subscribe((result)=>{
         if(result===true){
-          this.lendBook=true;
+          this.toastr.success('Book is Lended!', 'Success!');
+          this.router.navigateByUrl("/main/user/mybooks");
         }
         else{
-          this.lendBook=false;
+          this.toastr.warning('Something went wrong!', 'Failed!');
         }
       }) 
-    });
-    if(this.lendBook===true){
-      this.toastr.success('Book is Lended!', 'Success!');
-      this.router.navigateByUrl("/main/user/mybooks");
-    }
-    else{
-      this.toastr.warning('Something went wrong!', 'Failed!');
     }
   }
 
