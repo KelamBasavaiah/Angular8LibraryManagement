@@ -27,7 +27,7 @@ export class AddBookComponent implements OnInit {
     this.bookService.addBook(this.book).subscribe(data=>{
       if(data===true){
         this.toastr.success('Book Added!', 'Success!');
-        this.router.navigateByUrl("/main/Admin/ViewBooks");
+        this.router.navigateByUrl("/main/Admin/Books/ViewBooks");
       }
       else{
         this.toastr.warning('Something went wrong!', 'Failed!');

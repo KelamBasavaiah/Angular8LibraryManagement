@@ -85,7 +85,7 @@ export class UserViewBooksComponent implements OnInit {
       this.bookServices.lendingBook(this.selectedBook,this.user.userId).subscribe((result)=>{
         if(result===true){
           this.toastr.success('Book is Lended!', 'Success!');
-          this.router.navigateByUrl("/main/user/mybooks");
+          this.router.navigateByUrl("/main/user/Books/mybooks");
         }
         else{
           this.toastr.warning('Something went wrong!', 'Failed!');

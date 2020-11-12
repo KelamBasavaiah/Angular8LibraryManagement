@@ -24,7 +24,7 @@ export class ViewBooksComponent implements OnInit {
   }
   editBook(id:string)
   {
-    this.router.navigate(["/main/Admin/editView", id]);
+    this.router.navigate(["/main/Admin/Books/editView", id]);
   }
    deleteBook(id)
   {
@@ -41,7 +41,7 @@ export class ViewBooksComponent implements OnInit {
   }
 
   addBook(){
-    this.router.navigate(["/main/Admin/addBook"]);
+    this.router.navigate(["/main/Admin/Books/addBook"]);
   }
   
   search(filters:string)
