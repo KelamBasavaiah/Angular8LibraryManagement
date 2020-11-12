@@ -52,7 +52,7 @@ get validationControl() {
         this.toastr.warning('something went wrong!', 'Failed!');
       }
     })
-    this.router.navigate(["/main/Admin/ViewBooks"]);
+    this.router.navigate(["/main/Admin/Books/ViewBooks"]);
   }
 
 
