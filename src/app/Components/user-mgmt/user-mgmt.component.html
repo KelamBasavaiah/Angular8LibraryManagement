@@ -18,7 +18,7 @@
                 <th></th>
             </tr>            
         </thead>
-        <tbody>
+        <tbody *ngIf="!isLoading">
             <tr *ngFor="let k of users ; index as i">
                 <td>{{i+1}}</td>
                 <td>{{k.username}}</td>
@@ -30,7 +30,12 @@
             </tr>            
         </tbody>        
     </table>
-    <div *ngIf="users.length<1" style="margin-left: 450px;top: 10px;">
-        <p>No records Found . If you have applied any filters please Modify.</p>
+    <div *ngIf="!isLoading" >
+        <div *ngIf="users.length<1" style="margin-left: 450px;top: 10px;">
+            <p>No records Found . If you have applied any filters please Modify.</p>
+        </div>
     </div>
 </div>
+<div *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+</div> 

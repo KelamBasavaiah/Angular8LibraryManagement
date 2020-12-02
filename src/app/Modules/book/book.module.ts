@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { BookRoutingModule } from './book-routing.module';
 import { AddBookComponent } from 'src/app/Components/add-book/add-book.component';
@@ -9,6 +8,8 @@ import { EditViewComponent } from 'src/app/Components/edit-view/edit-view.compon
 import { ViewBooksComponent } from 'src/app/Components/view-books/view-books.component';
 import { UserViewBooksComponent } from 'src/app/Components/user-view-books/user-view-books.component';
 import { MyBooksComponent } from 'src/app/Components/my-books/my-books.component';
+import { LoadingSpinnerComponent } from 'src/app/Components/loading-spinner/loading-spinner.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -16,8 +17,7 @@ import { MyBooksComponent } from 'src/app/Components/my-books/my-books.component
   declarations: [AddBookComponent,EditViewComponent,ViewBooksComponent,
     UserViewBooksComponent,MyBooksComponent],
   imports: [
-    CommonModule,
-    BookRoutingModule,FormsModule,ReactiveFormsModule,ToastrModule
+    BookRoutingModule,FormsModule,ReactiveFormsModule,ToastrModule,SharedModule
    
   ]
 })

@@ -23,7 +23,7 @@
                 <th></th>
             </tr>            
         </thead>
-        <tbody>
+        <tbody *ngIf="!isLoading">
             <tr  *ngFor="let k of books ; index as i">
                 <td><label class="container">
                     <input type="checkbox" value="{{k.id}}" (change)="BookChange($event)" [checked]="selectedBook.indexOf(k.id)!=-1" [disabled]="disableCheckbox(k.copies)">
@@ -41,13 +41,16 @@
                 <td>{{k.publishedDate | date}}</td>                
                 <td>{{k.copies}}</td>
             </tr>
-        </tbody>        
+        </tbody>      
     </table>
-    <div *ngIf="books.length<1" style="margin-left: 450px;top: 10px;">
-        <p>No records Found . If you have applied any filters please Modify.</p>
+    <div *ngIf="!isLoading">
+        <div *ngIf="books.length<1" style="margin-left: 450px;top: 10px;">
+            <p>No records Found . If you have applied any filters please Modify.</p>
+        </div>
     </div>
 </div>
-<div>   
-     
-</div>
+<div *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+</div> 
+
 

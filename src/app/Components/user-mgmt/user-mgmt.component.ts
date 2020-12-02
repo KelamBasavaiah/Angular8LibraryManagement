@@ -14,13 +14,17 @@ export class UserMgmtComponent implements OnInit {
   user:User;
   asending:boolean=false;decending:boolean=true;
   public searchString:string="";
+  isLoading=true;
 
   constructor(private router: Router,private toastr:ToastrService,private userService:UserMgmtService) {
     this.user=new User(); 
   }
   getAllUsers(){
     this.userService.getAllUserDetails().subscribe((res:any)=>{
-      this.users=res;
+      setTimeout(() => {
+        this.isLoading = false;
+        this.users=res;
+      }, 1000);
     });
   }
   sort(column:any)
