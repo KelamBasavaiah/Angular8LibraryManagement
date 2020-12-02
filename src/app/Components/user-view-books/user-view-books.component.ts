@@ -18,6 +18,7 @@ export class UserViewBooksComponent implements OnInit {
   user:User;
   le:number;
   lendBook:Boolean=true;
+  isLoading=true;
 
   asending:boolean=false;decending:boolean=true;
   public searchString:string="";
@@ -26,7 +27,12 @@ export class UserViewBooksComponent implements OnInit {
     this.user=new User();
   }
   getAllBooks(){
-    this.bookServices.getAllBooks().subscribe((data:any[])=>{this.books=data});      
+    this.bookServices.getAllBooks().subscribe((data:any[])=>{
+      setTimeout(() => {
+        this.isLoading = false;
+        this.books=data
+      }, 1000); 
+    });      
   }
  
   search(filters:string)

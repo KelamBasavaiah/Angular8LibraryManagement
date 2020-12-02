@@ -19,6 +19,11 @@ import { UserHomeComponent } from './Components/user-home/user-home.component';
 import { AddUserComponent } from './Components/add-user/add-user.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 import { ContactComponent } from './Components/contact/contact.component';
+import { HighlightCustomDirective } from './Components/main/custom-directive.directive';
+import { CapitalizeWordPipe } from './Components/main/capitalize-word.pipe';
+import { StructuralDirective } from './Components/main/structural-directive.directive';
+import { LoadingSpinnerComponent } from './Components/loading-spinner/loading-spinner.component';
+import { SharedModule } from './Modules/shared/shared.module';
 
 
 
@@ -34,13 +39,16 @@ import { ContactComponent } from './Components/contact/contact.component';
     UserHomeComponent,
     AddUserComponent,
     ChangePasswordComponent,
-    ContactComponent
+    ContactComponent,
+    HighlightCustomDirective,
+    CapitalizeWordPipe,
+    StructuralDirective
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule,ReactiveFormsModule,ToastrModule.forRoot(),
-    CommonModule,BrowserAnimationsModule,HttpClientModule
+    BrowserAnimationsModule,HttpClientModule,SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

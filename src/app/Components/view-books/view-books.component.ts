@@ -15,12 +15,18 @@ export class ViewBooksComponent implements OnInit {
    le:number;
    asending:boolean=false;decending:boolean=true;
   public searchString:string="";
+  isLoading = true;
   
   constructor(private bookServices:BookService,private router: Router,private toastr:ToastrService) { 
     
   }
   getAllBooks(){
-    this.bookServices.getAllBooks().subscribe((data:any[])=>{this.books=data});      
+    this.bookServices.getAllBooks().subscribe((data:any[])=>{
+      setTimeout(() => {
+        this.isLoading = false;
+        this.books=data
+      }, 1000);
+    });      
   }
   editBook(id:string)
   {
